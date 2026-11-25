@@ -1,0 +1,3952 @@
+<!DOCTYPE html>
+<html lang="en" class="archive-locked">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23101117%22%2F%3E%3Cpath%20d%3D%22M16%203%2019.5%2012.5%2029%2016%2019.5%2019.5%2016%2029%2012.5%2019.5%203%2016%2012.5%2012.5Z%22%20fill%3D%22%23ed7887%22%2F%3E%3Cpath%20d%3D%22M16%209%2018%2014%2023%2016%2018%2018%2016%2023%2014%2018%209%2016%2014%2014Z%22%20fill%3D%22%23a7b9e4%22%2F%3E%3Ccircle%20cx%3D%2226%22%20cy%3D%226%22%20r%3D%222%22%20fill%3D%22%239ed3bd%22%2F%3E%3C%2Fsvg%3E">
+<meta name="theme-color" content="#101117">
+<meta name="description" content="An independent fan-made reference archive of public links and older web resources.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>EARTH'S HIKKICHAN ARCHIVE</title>
+
+<style>
+:root {
+  color-scheme:dark;
+  --bg:#101117;
+  --panel:#101522;
+  --border:#303e60;
+  --blue:#8ca9ef;
+  --blue-light:#a7b9e4;
+  --pink:#ed7887;
+  --pink-light:#ffb4c9;
+  --mint:#9ed3bd;
+  --yellow:#ffd447;
+  --red:#ff858c;
+  --muted:#929db6;
+  --font:"Courier New",Courier,monospace;
+}
+
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:18px;
+  background:var(--bg);
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+
+body {
+  min-height:100vh;
+  min-height:100dvh;
+  padding:30px 12px;
+  overflow-x:hidden;
+  background:var(--bg);
+  color:#fff;
+  font:14px var(--font);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+button,
+input {
+  font:inherit;
+}
+
+button {
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+
+a {
+  -webkit-tap-highlight-color:transparent;
+}
+
+[hidden] {
+  display:none!important;
+}
+
+::selection {
+  background:#8298c7;
+  color:#08090d;
+}
+
+::-webkit-scrollbar {
+  width:9px;
+}
+
+::-webkit-scrollbar-track {
+  background:#08090d;
+}
+
+::-webkit-scrollbar-thumb {
+  background:#34456f;
+  border:2px solid #08090d;
+  border-radius:8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:#53668f;
+}
+
+:focus-visible {
+  outline:2px solid #a7b9e4;
+  outline-offset:3px;
+}
+
+html.archive-locked,
+html.archive-locked body {
+  overflow:hidden;
+  overscroll-behavior:none;
+}
+
+html.archive-locked .wrapper,
+html.archive-locked #top-button {
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+/* Reveal visibility immediately so the opacity fade is actually visible. */
+.wrapper {
+  transition:
+    opacity .35s ease,
+    visibility 0s linear 0s;
+}
+
+html.archive-locked .wrapper {
+  transition:
+    opacity .35s ease,
+    visibility 0s linear .35s;
+}
+
+/* One opacity transition avoids competing fades and an interrupted animation. */
+html.archive-entering .wrapper {
+  animation:none;
+}
+
+@keyframes archive-fade-in {
+  from {
+    opacity:0;
+    transform:translate3d(0,10px,0);
+  }
+
+  to {
+    opacity:1;
+    transform:translate3d(0,0,0);
+  }
+}
+
+/* Background atmosphere */
+.ambient-glow {
+  position:fixed;
+  inset:-8%;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 10% 15%,#40518b4d,transparent 38%),
+    radial-gradient(ellipse at 82% 18%,#7330443b,transparent 36%),
+    radial-gradient(ellipse at 48% 38%,#40518b45,transparent 42%),
+    radial-gradient(ellipse at 18% 52%,#73304433,transparent 38%),
+    radial-gradient(ellipse at 83% 55%,#40518b40,transparent 40%),
+    radial-gradient(ellipse at 45% 72%,#73304438,transparent 42%),
+    radial-gradient(ellipse at 12% 88%,#40518b40,transparent 38%),
+    radial-gradient(ellipse at 88% 91%,#73304438,transparent 38%),
+    radial-gradient(ellipse at 52% 100%,#9ed3bd1a,transparent 40%);
+  contain:strict;
+}
+
+body:before,
+body:after {
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+}
+
+body:before {
+  opacity:.55;
+  background-image:
+    radial-gradient(circle,#d5e5ff 1px,transparent 1.8px),
+    radial-gradient(circle,#8badff 1.2px,transparent 2px),
+    radial-gradient(circle,#ffb4c9 1px,transparent 1.8px),
+    radial-gradient(circle,#b7ffe5 1.2px,transparent 2px);
+  background-size:73px 79px,113px 107px,149px 137px,181px 163px;
+  background-position:7px 13px,31px 47px,67px 19px,17px 83px;
+}
+
+body:after {
+  opacity:.3;
+  background-image:
+    radial-gradient(circle,#fff 1px,transparent 1.8px),
+    radial-gradient(circle,#8badffb3 1px,transparent 2px);
+  background-size:97px 113px,137px 127px;
+  background-position:43px 17px,83px 61px;
+}
+
+.ambient-glow:after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse at 18% 28%,#8ca9ef12,transparent 25%),
+    radial-gradient(ellipse at 82% 68%,#ed788712,transparent 27%),
+    radial-gradient(ellipse at 50% 90%,#9ed3bd0b,transparent 32%);
+  animation:nebula-drift 24s ease-in-out infinite alternate;
+}
+
+@keyframes nebula-drift {
+  from {
+    opacity:.55;
+    transform:translate3d(-1%,0,0) scale(1);
+  }
+
+  to {
+    opacity:1;
+    transform:translate3d(1%,1%,0) scale(1.04);
+  }
+}
+
+/* Extra background decoration: faint blueprint grid, drifting colour orbs, soft vignette */
+.bg-grid {
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  opacity:.55;
+  background-image:
+    linear-gradient(#8ca9ef0a 1px,transparent 1px),
+    linear-gradient(90deg,#8ca9ef0a 1px,transparent 1px);
+  background-size:46px 46px;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 28%,#000 0%,transparent 80%);
+  mask-image:radial-gradient(ellipse at 50% 28%,#000 0%,transparent 80%);
+}
+
+.bg-orbs {
+  position:fixed;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+  contain:strict;
+}
+
+.bg-orb {
+  position:absolute;
+  display:block;
+  border-radius:50%;
+  opacity:.14;
+  animation:orb-drift var(--duration,38s) ease-in-out var(--delay,0s) infinite alternate;
+  will-change:transform;
+}
+
+.bg-orb.blue {
+  width:34vmax;
+  height:34vmax;
+  left:-8vmax;
+  top:10vh;
+  background:radial-gradient(circle at 35% 35%,#8ca9ef,transparent 68%);
+}
+
+.bg-orb.pink {
+  width:28vmax;
+  height:28vmax;
+  right:-10vmax;
+  top:44vh;
+  background:radial-gradient(circle at 60% 40%,#ed7887,transparent 68%);
+  --duration:46s;
+  --delay:-14s;
+  opacity:.11;
+}
+
+.bg-orb.mint {
+  width:24vmax;
+  height:24vmax;
+  left:14vw;
+  bottom:-12vmax;
+  background:radial-gradient(circle at 50% 45%,#9ed3bd,transparent 66%);
+  --duration:54s;
+  --delay:-28s;
+  opacity:.09;
+}
+
+@keyframes orb-drift {
+  from {
+    transform:translate3d(0,0,0) scale(1);
+  }
+
+  to {
+    transform:translate3d(6vw,-5vh,0) scale(1.14);
+  }
+}
+
+.bg-vignette {
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:radial-gradient(ellipse at 50% 36%,transparent 55%,#08090dbf 120%);
+}
+
+/* Shooting stars */
+#shooting-stars {
+  position:fixed;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+  contain:strict;
+}
+
+.shooting-star {
+  position:absolute;
+  left:-30vw;
+  top:var(--start-y,20%);
+  display:block;
+  width:clamp(110px,16vw,200px);
+  height:2px;
+  opacity:0;
+  pointer-events:none;
+  border-radius:100%;
+  transform-origin:right center;
+  background:linear-gradient(
+    90deg,
+    transparent 0%,
+    #8ca9ef08 18%,
+    #8ca9ef55 48%,
+    #a7b9e4d9 78%,
+    #ffffff 100%
+  );
+  box-shadow:0 0 5px #8ca9ef35;
+  animation:shooting-star-flight var(--duration,2.4s) linear var(--delay,0s) infinite;
+  will-change:transform,opacity;
+}
+
+.shooting-star:before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:72%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#8ca9ef35,transparent);
+  filter:blur(2px);
+}
+
+.shooting-star:after {
+  content:"";
+  position:absolute;
+  top:50%;
+  right:-2px;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 0 4px 2px #fff9,0 0 10px 4px #8ca9ef70,0 0 18px 5px #8ca9ef25;
+  transform:translateY(-50%);
+}
+
+@keyframes shooting-star-flight {
+  0% {
+    opacity:0;
+    transform:translate3d(0,0,0) rotate(32deg) scaleX(.55);
+  }
+
+  5% {
+    opacity:1;
+    transform:translate3d(7vw,3vh,0) rotate(32deg) scaleX(1);
+  }
+
+  72% {
+    opacity:.95;
+  }
+
+  100% {
+    opacity:0;
+    transform:translate3d(145vw,62vh,0) rotate(32deg) scaleX(.9);
+  }
+}
+
+/* Decorative twinkling stars */
+#cornerDecorations {
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  overflow:hidden;
+  contain:strict;
+}
+
+.corner-decoration {
+  position:absolute;
+  display:block;
+  line-height:1;
+  user-select:none;
+  animation:twinkle var(--duration,3s) ease-in-out infinite;
+  animation-delay:var(--delay,0s);
+}
+
+.corner-decoration.star,
+.corner-decoration.pink-star,
+.corner-decoration.mint-star {
+  font-size:var(--size,13px);
+}
+
+.corner-decoration.star {
+  color:#b9ccff;
+  text-shadow:0 0 7px #8badff;
+}
+
+.corner-decoration.pink-star {
+  color:#ffb4c9;
+  text-shadow:0 0 7px #ffb4c9;
+}
+
+.corner-decoration.mint-star {
+  color:#b7ffe5;
+  text-shadow:0 0 7px #b7ffe5;
+}
+
+.corner-decoration.dot,
+.corner-decoration.pink-dot,
+.corner-decoration.mint-dot {
+  width:var(--size,3px);
+  height:var(--size,3px);
+  border-radius:50%;
+}
+
+.corner-decoration.dot {
+  background:#d5e5ff;
+  box-shadow:0 0 5px #8badff;
+}
+
+.corner-decoration.pink-dot {
+  background:#ffb4c9;
+  box-shadow:0 0 5px #ffb4c9;
+}
+
+.corner-decoration.mint-dot {
+  background:#b7ffe5;
+  box-shadow:0 0 5px #b7ffe5;
+}
+
+@keyframes twinkle {
+  0%,100% {
+    opacity:.3;
+    transform:scale(.85);
+  }
+
+  50% {
+    opacity:.95;
+    transform:scale(1.08);
+  }
+}
+
+#scroll-progress {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:3px;
+  z-index:10001;
+  background:linear-gradient(90deg,#8298c7,#ed687b,#9ed3bd);
+  transform:scaleX(0);
+  transform-origin:left;
+  pointer-events:none;
+}
+
+/* Entry notice */
+.entry-gate {
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+  overflow-y:auto;
+  overflow-x:hidden;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  background:transparent;
+  opacity:1;
+  visibility:visible;
+  transition:opacity .28s ease,visibility 0s linear 0s;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+}
+
+.entry-gate.is-leaving {
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .28s ease,visibility 0s linear .28s;
+}
+
+.entry-close {
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:2;
+  width:36px;
+  height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  font-size:22px;
+  line-height:1;
+  color:#e8ebf5;
+  background:#ffffff14;
+  border:1px solid #8badff55;
+  border-radius:50%;
+  cursor:pointer;
+  transition:background .2s ease,transform .2s ease;
+}
+.entry-close:hover { background:#8badff33; transform:scale(1.06); }
+.entry-close:focus-visible { outline:2px solid #8badff; outline-offset:2px; }
+.entry-close[hidden] { display:none!important; }
+
+.entry-gate[hidden] {
+  display:none!important;
+}
+
+.entry-card {
+  position:relative;
+  flex:0 1 610px;
+  width:100%;
+  max-width:610px;
+  max-height:calc(100vh - 32px);
+  max-height:calc(100dvh - 32px);
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  margin:auto;
+  overflow:hidden;
+  color:#e8ebf5;
+  background-color:#0b0e18f0;
+  background-image:
+    radial-gradient(circle,#8badff30 1px,transparent 1.8px),
+    radial-gradient(circle,#ffb4c930 1px,transparent 1.8px),
+    linear-gradient(135deg,#40518b12,#73304412);
+  background-size:73px 79px,113px 107px,100% 100%;
+  background-position:7px 13px,31px 47px,center;
+  border:1px solid #53668f;
+  border-radius:10px;
+  box-shadow:0 0 35px #40518b30,0 18px 65px #0008;
+}
+
+.entry-heading {
+  flex:0 0 auto;
+  padding:25px 22px 18px;
+  text-align:center;
+  border-bottom:1px solid #303e60;
+  background:linear-gradient(135deg,#40518b35,#73304430);
+}
+
+.entry-kicker {
+  color:#9eafd7;
+  font-size:10px;
+  letter-spacing:2px;
+  line-height:1.8;
+  margin-bottom:12px;
+}
+
+.entry-heading h2 {
+  color:var(--pink);
+  font-size:clamp(20px,5vw,27px);
+  line-height:1.4;
+  margin-bottom:8px;
+}
+
+.entry-subtitle {
+  color:var(--blue-light);
+  font-size:11px;
+  letter-spacing:1px;
+  line-height:1.8;
+}
+
+.entry-ornament {
+  color:var(--blue);
+  letter-spacing:12px;
+  margin-top:12px;
+}
+
+.entry-ornament span:nth-child(2) {
+  color:var(--pink-light);
+}
+
+.entry-ornament span:nth-child(3) {
+  color:var(--mint);
+}
+
+.entry-body {
+  flex:1 1 auto;
+  min-height:0;
+  min-width:0;
+  padding:19px 22px 8px;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  line-height:1.85;
+  font-size:12px;
+}
+
+.entry-body p {
+  color:#c2cbe0;
+  margin-bottom:12px;
+}
+
+.entry-body strong {
+  color:#f0a0ac;
+}
+
+.entry-body h3 {
+  color:var(--blue-light);
+  font-size:11px;
+  letter-spacing:1px;
+  margin:16px 0 6px;
+}
+
+.entry-body ul {
+  padding-left:20px;
+  margin-bottom:13px;
+  color:#c2cbe0;
+}
+
+.entry-body li {
+  margin-bottom:5px;
+}
+
+.entry-body .legal-small {
+  color:#9ba7c2;
+  font-size:11px;
+}
+
+.entry-footer {
+  position:relative;
+  z-index:1;
+  flex:0 0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:100%;
+  padding:14px 22px 20px;
+  border-top:1px solid #303e60;
+  background:#0b0e18f0;
+  text-align:center;
+}
+
+.entry-agreement {
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  width:100%;
+  color:#b6c1d8;
+  font-size:11px;
+  line-height:1.7;
+  margin-bottom:13px;
+  cursor:pointer;
+  text-align:left;
+}
+
+.entry-agreement input {
+  appearance:none;
+  -webkit-appearance:none;
+  position:relative;
+  display:inline-grid;
+  place-items:center;
+  width:16px;
+  height:16px;
+  flex:0 0 16px;
+  margin:2px 0 0;
+  cursor:pointer;
+  border:1px solid #6577a2;
+  border-radius:3px;
+  background:#101522;
+  transition:background-color .25s ease,border-color .25s ease,box-shadow .25s ease,transform .18s ease;
+}
+
+.entry-agreement input::after {
+  content:"";
+  width:4px;
+  height:8px;
+  border:solid #101117;
+  border-width:0 2px 2px 0;
+  transform:rotate(45deg) scale(0);
+  opacity:0;
+  transition:transform .18s ease,opacity .18s ease;
+}
+
+.entry-agreement input:checked {
+  background:#9ed3bd;
+  border-color:#9ed3bd;
+  box-shadow:0 0 8px #9ed3bd35;
+}
+
+.entry-agreement input:checked::after {
+  transform:rotate(45deg) scale(1);
+  opacity:1;
+}
+
+.entry-agreement input:not(:checked)::after {
+  transform:rotate(45deg) scale(0);
+  opacity:0;
+}
+
+.entry-agreement input:active {
+  transform:scale(.94);
+}
+
+.entry-agreement input:focus-visible {
+  outline:2px solid #a7b9e4;
+  outline-offset:3px;
+}
+
+.entry-agree-button {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  width:100%;
+  min-height:47px;
+  margin:0 auto;
+  padding:12px;
+  border:1px solid #6577a2;
+  border-radius:7px;
+  background:#303e6038;
+  color:#f0a0ac;
+  font-weight:bold;
+  letter-spacing:.7px;
+  cursor:pointer;
+  transition:background-color .3s ease,border-color .3s ease,color .3s ease,opacity .3s ease,box-shadow .3s ease,filter .3s ease,transform .2s cubic-bezier(.2,.7,.25,1);
+}
+
+.entry-agree-button:not(:disabled) {
+  transition-timing-function:cubic-bezier(.22,.9,.3,1.15);
+}
+
+.entry-agree-button:hover:not(:disabled) {
+  color:#fff;
+  border-color:#a5b5d8;
+  background:#40518b70;
+  box-shadow:0 0 16px #8298c72b;
+}
+
+.entry-agree-button:disabled {
+  opacity:.6;
+  cursor:not-allowed;
+  box-shadow:none;
+  filter:saturate(.55) brightness(.94);
+}
+
+.entry-agree-button:not(:disabled) {
+  box-shadow:0 0 10px #8298c71a;
+}
+
+.entry-agree-button:active:not(:disabled) {
+  transform:scale(.985);
+}
+
+.entry-error {
+  width:100%;
+  min-height:17px;
+  text-align:center;
+  color:var(--pink-light);
+  font-size:10px;
+  margin-top:7px;
+}
+
+.entry-footnote {
+  width:100%;
+  color:#7f8aa5;
+  text-align:center;
+  font-size:10px;
+  line-height:1.7;
+  margin-top:8px;
+}
+
+/* Main layout */
+.wrapper {
+  position:relative;
+  isolation:isolate;
+  z-index:1;
+  width:100%;
+  max-width:820px;
+  margin:auto;
+  padding:20px 22px 38px;
+  overflow-wrap:anywhere;
+  background:#08090d80;
+  border:1px solid var(--border);
+  border-radius:13px;
+  box-shadow:0 8px 35px #0003,0 0 35px #40518b12;
+}
+
+header {
+  padding:28px 8px 20px;
+  margin-bottom:22px;
+  text-align:center;
+  border-bottom:1px solid #28334d;
+}
+
+header:before {
+  content:"Z O M B I E B E A T Z 2 0 0 0  A R C H I V E";
+  display:block;
+  color:var(--blue);
+  font-size:10px;
+  letter-spacing:2px;
+  margin-bottom:18px;
+}
+
+h1 {
+  color:#ed687b;
+  font-size:clamp(25px,6vw,36px);
+  line-height:1.35;
+  text-decoration:underline;
+  text-decoration-color:#873d50;
+  text-underline-offset:6px;
+  margin-bottom:22px;
+  text-shadow:2px 2px 0 #321b2a,0 0 8px #ed687b33;
+}
+
+.subtitle {
+  display:inline-block;
+  color:#a5b5d8;
+  font-size:11px;
+  letter-spacing:1px;
+  line-height:1.6;
+  margin-bottom:18px;
+  padding:7px 10px;
+  border-block:1px solid var(--border);
+}
+
+.top-nav {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+  width:100%;
+}
+
+.nav-item {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:10px 14px;
+  color:var(--pink);
+  font-weight:bold;
+  text-align:center;
+  background:#0c0f1740;
+  border:1px solid var(--border);
+  border-radius:7px;
+  cursor:pointer;
+  transition:background-color .26s ease,border-color .26s ease,color .26s ease,box-shadow .26s ease,transform .24s cubic-bezier(.2,.7,.25,1);
+}
+
+.nav-item:hover {
+  color:#b5c9ff;
+  border-color:#6577a2;
+  background:#111522;
+  transform:translateY(-1px);
+}
+
+.nav-item.is-active {
+  color:#fff;
+  background:#40518b50;
+  border-color:#8ca9ef;
+  box-shadow:0 0 14px #8298c733,inset 0 0 10px #8298c71a;
+}
+
+.archive-decoration {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:16px;
+  margin-bottom:25px;
+  padding:10px;
+  color:var(--blue);
+  font-size:15px;
+  letter-spacing:2px;
+}
+
+.archive-decoration span:nth-child(2) {
+  color:#b65d70;
+}
+
+.archive-decoration span:nth-child(3) {
+  color:var(--mint);
+}
+
+/* Panels */
+.panel {
+  position:relative;
+  isolation:isolate;
+  margin-bottom:20px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:10px;
+  scroll-margin-top:18px;
+  transition:border-color .25s ease,box-shadow .25s ease;
+}
+
+.panel:hover {
+  border-color:#53668f;
+}
+
+.panel.is-collapsed {
+  border-color:var(--border);
+}
+
+.panel.is-glowing {
+  animation:panel-highlight 1.25s ease-out;
+}
+
+@keyframes panel-highlight {
+  0% {
+    border-color:#ed7887;
+    box-shadow:0 0 0 1px #ed7887,0 0 30px #ed788755;
+  }
+
+  35% {
+    border-color:#8ca9ef;
+    box-shadow:0 0 0 1px #8ca9ef,0 0 26px #8ca9ef55;
+  }
+
+  70% {
+    border-color:#9ed3bd;
+    box-shadow:0 0 0 1px #9ed3bd,0 0 18px #9ed3bd35;
+  }
+
+  100% {
+    border-color:var(--border);
+    box-shadow:0 0 0 transparent;
+  }
+}
+
+.panel-top {
+  display:block;
+  position:relative;
+  width:100%;
+  padding:14px 48px 14px 15px;
+  color:var(--pink);
+  background:#10111770;
+  border:0;
+  text-align:left;
+  font-weight:bold;
+  line-height:1.5;
+  cursor:pointer;
+  transition:background-color .24s ease,color .24s ease;
+}
+
+.panel-top:before {
+  content:"✦";
+  color:var(--blue);
+  margin-right:10px;
+}
+
+.panel-top:after,
+.social-group-heading:after {
+  content:"";
+  box-sizing:border-box;
+  position:absolute;
+  top:50%;
+  display:block;
+  background-color:transparent;
+  background-image:
+    linear-gradient(var(--blue-light),var(--blue-light)),
+    linear-gradient(var(--blue-light),var(--blue-light));
+  background-repeat:no-repeat;
+  background-position:center,center;
+  background-size:10px 1px,1px 10px;
+  transform:translateY(-50%);
+  transform-origin:center;
+  border:1px solid var(--border);
+  border-radius:5px;
+  transition:border-color .24s ease,background-size .24s ease,background-color .24s ease;
+  pointer-events:none;
+}
+
+.panel-top:after {
+  right:13px;
+  width:24px;
+  height:24px;
+}
+
+.social-group-heading:after {
+  right:12px;
+  width:23px;
+  height:23px;
+}
+
+.panel-top[aria-expanded="true"]:after,
+.social-group-heading[aria-expanded="true"]:after {
+  background-size:10px 1px,1px 0;
+}
+
+.panel-top[aria-expanded="false"]:after,
+.social-group-heading[aria-expanded="false"]:after {
+  background-size:10px 1px,1px 10px;
+}
+
+.panel-top:hover {
+  background:#111522;
+  color:var(--pink-light);
+}
+
+.panel-top:hover:after,
+.social-group-heading:hover:after {
+  border-color:#6577a2;
+}
+
+.panel-collapse-content {
+  display:grid;
+  grid-template-rows:1fr;
+  min-height:0;
+  overflow:hidden;
+  opacity:1;
+  transition:grid-template-rows .32s cubic-bezier(.2,.7,.25,1),opacity .25s ease;
+}
+
+.panel-collapse-inner {
+  min-height:0;
+  min-width:0;
+  overflow:hidden;
+}
+
+.panel.is-collapsed>.panel-collapse-content {
+  grid-template-rows:0fr;
+  opacity:0;
+  pointer-events:none;
+}
+
+.panel-subtext {
+  color:var(--muted);
+  font-size:12px;
+  padding:12px 15px 5px;
+  line-height:1.8;
+}
+
+.panel-content {
+  padding:15px;
+  line-height:1.9;
+}
+
+.intro-text {
+  color:#c5ccdc;
+  line-height:1.95;
+}
+
+.intro-text strong {
+  color:var(--pink);
+}
+
+.small-note {
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.85;
+}
+
+.status-note p + p {
+  margin-top:12px;
+}
+
+.about-boxes {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  padding:14px;
+}
+
+.about-box {
+  min-width:0;
+  padding:13px;
+  color:#c5ccdc;
+  border:1px solid var(--border);
+  border-radius:8px;
+  line-height:1.85;
+  transition:border-color .25s ease,transform .25s cubic-bezier(.2,.7,.25,1);
+}
+
+.about-box:hover {
+  border-color:#6577a2;
+  transform:translateY(-1px);
+}
+
+.about-box:before {
+  content:"✧";
+  display:block;
+  color:var(--blue);
+  margin-bottom:6px;
+}
+
+.about-box h3 {
+  color:var(--pink);
+  font-size:12px;
+  margin-bottom:7px;
+}
+
+.about-box p {
+  font-size:12px;
+}
+
+.about-box.full-width {
+  grid-column:1/-1;
+}
+
+/* Live archive snapshot */
+.snapshot-stats {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+  padding:14px;
+}
+
+.snapshot-stat {
+  min-width:0;
+  padding:13px 10px;
+  color:#b6c1d8;
+  background:#0c0f1740;
+  border:1px solid var(--border);
+  border-radius:8px;
+  text-align:center;
+  font-size:10px;
+  line-height:1.75;
+  letter-spacing:.5px;
+  overflow-wrap:anywhere;
+  transition:border-color .25s ease,background-color .25s ease;
+}
+
+.snapshot-stat:hover {
+  border-color:#6577a2;
+  background:#111522;
+}
+
+.snapshot-number {
+  display:block;
+  margin-bottom:7px;
+  color:var(--mint);
+  font-size:clamp(21px,4vw,29px);
+  line-height:1.2;
+  font-weight:bold;
+  letter-spacing:0;
+  font-variant-numeric:tabular-nums;
+}
+
+.snapshot-label {
+  display:block;
+  color:var(--blue-light);
+  font-weight:bold;
+}
+
+.snapshot-note {
+  padding:0 14px 15px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.8;
+}
+
+.quick-links {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:14px;
+}
+
+.quick-links a,
+.alias-link {
+  display:block;
+  min-width:0;
+  padding:9px 11px;
+  color:var(--blue);
+  font-weight:bold;
+  text-decoration:none;
+  text-align:center;
+  background:transparent;
+  border:1px solid var(--border);
+  border-radius:7px;
+  transition:background-color .25s ease,border-color .25s ease,color .25s ease,transform .24s cubic-bezier(.2,.7,.25,1);
+}
+
+.quick-links a:hover,
+.alias-link:hover {
+  color:var(--pink-light);
+  border-color:#6577a2;
+  background:#111522;
+  transform:translateY(-1px);
+}
+
+/* Search and filters */
+.search-area {
+  padding:15px;
+}
+
+.search-label {
+  display:block;
+  color:var(--blue-light);
+  margin-bottom:9px;
+  font-size:11px;
+}
+
+.search-row {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+#archive-search {
+  flex:1 1 200px;
+  min-width:0;
+  padding:11px;
+  color:#b6c9ff;
+  background:#08090d;
+  border:1px solid var(--border);
+  border-radius:7px;
+  font-size:16px;
+  appearance:none;
+  -webkit-appearance:none;
+  transition:border-color .25s ease,box-shadow .25s ease;
+}
+
+#archive-search::placeholder {
+  color:#626d85;
+}
+
+#archive-search:focus {
+  outline:2px solid #8298c7;
+  outline-offset:1px;
+  border-color:#8ca9ef;
+  box-shadow:0 0 12px #8298c71a;
+}
+
+.search-button {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:10px 13px;
+  color:var(--blue-light);
+  background:transparent;
+  border:1px solid var(--border);
+  border-radius:7px;
+  font-size:12px;
+  font-weight:bold;
+  text-align:center;
+  cursor:pointer;
+  transition:background-color .25s ease,border-color .25s ease,color .25s ease,transform .22s cubic-bezier(.2,.7,.25,1);
+}
+
+.search-button:hover {
+  color:var(--pink-light);
+  border-color:#6577a2;
+  background:#111522;
+}
+
+.search-button:active {
+  transform:scale(.98);
+}
+
+#search-status {
+  min-height:30px;
+  padding-top:10px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.7;
+}
+
+.filter-row {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:7px;
+  padding:0 15px 15px;
+}
+
+.filter-chip {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:8px 10px;
+  color:var(--blue-light);
+  background:transparent;
+  border:1px solid #28334d;
+  border-radius:7px;
+  font-size:11px;
+  text-align:center;
+  cursor:pointer;
+  transition:background-color .25s ease,border-color .25s ease,color .25s ease,transform .2s ease;
+}
+
+.filter-chip[aria-pressed="true"],
+.filter-chip:hover {
+  color:var(--pink-light);
+  border-color:#6577a2;
+  background:#111522;
+}
+
+.filter-chip:active {
+  transform:scale(.98);
+}
+
+.status-filter-available[aria-pressed="true"] {
+  color:var(--mint);
+  border-color:#477d68;
+}
+
+.status-filter-deleted[aria-pressed="true"],
+.status-filter-banned[aria-pressed="true"] {
+  color:var(--red);
+  border-color:#985060;
+}
+
+.status-filter-corrupted[aria-pressed="true"] {
+  color:var(--yellow);
+  border-color:#826b46;
+}
+
+/* Link rows */
+.link-list {
+  padding:10px 15px 16px;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  min-width:0;
+}
+
+.row {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:7px;
+  min-width:0;
+  padding:8px;
+  line-height:1.8;
+  border-bottom:1px solid #303e6033;
+  border-radius:5px;
+  transition:background-color .2s ease;
+}
+
+.row:last-child {
+  border-bottom-color:transparent;
+}
+
+.row:hover {
+  background:#2733511f;
+}
+
+.link-list a {
+  min-width:0;
+  max-width:100%;
+  color:var(--blue);
+  font-weight:bold;
+  text-decoration:none;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+
+.link-list a:hover {
+  color:var(--pink-light);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+.row>a {
+  flex:0 1 auto;
+  order:1;
+}
+
+.row .status-separator {
+  order:2;
+  color:var(--muted);
+}
+
+.row>.status-notice {
+  order:3;
+}
+
+.row .username-description {
+  display:none;
+}
+
+.media a {
+  color:var(--mint);
+}
+
+.media a:hover {
+  color:#d0f1df;
+}
+
+.media .row>a {
+  font-size:15px;
+  line-height:1.7;
+  padding:4px 0;
+}
+
+.group-heading {
+  margin:20px 0 5px;
+  padding:12px 11px;
+  color:#f08a9a;
+  border:1px solid var(--border);
+  border-left:3px solid var(--blue);
+  border-bottom:2px solid #53668f;
+  border-radius:7px;
+  font-size:15px;
+  font-weight:bold;
+  letter-spacing:1px;
+  line-height:1.5;
+}
+
+.group-heading:before {
+  content:"✧ ";
+  color:var(--blue);
+}
+
+.status-notice {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  max-width:100%;
+  padding:4px 8px;
+  margin:3px;
+  border:1px solid;
+  border-radius:5px;
+  font-size:10px;
+  font-weight:bold;
+  line-height:1.5;
+  letter-spacing:.2px;
+  overflow-wrap:anywhere;
+  white-space:normal;
+}
+
+.status-notice:before {
+  content:"";
+  width:7px;
+  height:7px;
+  flex:0 0 7px;
+  border-radius:50%;
+  background:var(--status-light);
+  box-shadow:0 0 5px var(--status-light);
+}
+
+.status-available {
+  --status-light:#55f29b;
+  color:var(--mint);
+  border-color:#477d68;
+  background:#477d6812;
+}
+
+.status-deleted,
+.status-banned {
+  --status-light:#ff3838;
+  color:var(--red);
+  border-color:#985060;
+  background:#98506012;
+}
+
+.status-corrupt {
+  --status-light:#ffd447;
+  color:var(--yellow);
+  border-color:#826b46;
+  background:#826b4612;
+}
+
+.status-notice.status-available:before {
+  animation:pulse-available 2.2s ease-in-out infinite;
+}
+
+.status-notice.status-deleted:before,
+.status-notice.status-banned:before {
+  animation:pulse-danger 2.2s ease-in-out infinite;
+}
+
+.status-notice.status-corrupt:before {
+  animation:pulse-corrupt 2.2s ease-in-out infinite;
+}
+
+/* Each dot dims by the same amount of light, so all four pulse with the
+   same visible strength even though their colours differ in brightness. */
+@keyframes pulse-available {
+  50% {
+    opacity:.84;
+    transform:scale(.88);
+  }
+}
+
+@keyframes pulse-danger {
+  50% {
+    opacity:.55;
+    transform:scale(.88);
+  }
+}
+
+@keyframes pulse-corrupt {
+  50% {
+    opacity:.84;
+    transform:scale(.88);
+  }
+}
+
+/* Platform groups */
+.social-group {
+  min-width:0;
+  margin:12px 0;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:transparent;
+  transition:border-color .25s ease;
+}
+
+.social-group:hover {
+  border-color:#6577a2;
+}
+
+.social-group-heading {
+  position:relative;
+  display:block;
+  width:100%;
+  padding:13px 45px 13px 13px;
+  color:#f08a9a;
+  background:transparent;
+  border:0;
+  text-align:left;
+  font-weight:bold;
+  letter-spacing:.5px;
+  line-height:1.5;
+  overflow-wrap:anywhere;
+  cursor:pointer;
+  touch-action:manipulation;
+  transition:background-color .24s ease,color .24s ease;
+}
+
+.social-group-heading:before {
+  content:"✧";
+  color:var(--blue);
+  margin-right:9px;
+}
+
+.social-group-content {
+  display:grid;
+  grid-template-rows:1fr;
+  min-height:0;
+  overflow:hidden;
+  opacity:1;
+  border-top:1px solid #303e6059;
+  transition:grid-template-rows .32s cubic-bezier(.2,.7,.25,1),opacity .24s ease,border-color .24s ease;
+}
+
+.social-group-inner {
+  min-height:0;
+  min-width:0;
+  overflow:hidden;
+  padding:7px 8px;
+  transition:padding .26s ease;
+}
+
+.social-group.is-collapsed>.social-group-content {
+  grid-template-rows:0fr;
+  opacity:0;
+  border-top-color:transparent;
+  pointer-events:none;
+}
+
+.social-group.is-collapsed>.social-group-content>.social-group-inner {
+  padding-top:0;
+  padding-bottom:0;
+}
+
+.youtube-list .social-group[data-status="available"]>.social-group-heading {
+  color:var(--mint);
+}
+
+.youtube-list .social-group[data-status="deleted"]>.social-group-heading {
+  color:var(--red);
+}
+
+.youtube-list .social-group[data-status="corrupted"]>.social-group-heading {
+  color:var(--yellow);
+}
+
+.status-subgroup {
+  margin:10px 0;
+  overflow:hidden;
+  border:1px solid #252f46;
+  border-radius:7px;
+}
+
+.status-subgroup-title {
+  padding:9px 10px;
+  color:var(--blue-light);
+  border-bottom:1px solid var(--border);
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:.5px;
+}
+
+.status-subgroup[data-status="available"] .status-subgroup-title {
+  color:var(--mint);
+}
+
+.status-subgroup[data-status="deleted"] .status-subgroup-title,
+.status-subgroup[data-status="banned"] .status-subgroup-title {
+  color:var(--red);
+}
+
+.status-subgroup[data-status="corrupted"] .status-subgroup-title {
+  color:var(--yellow);
+}
+
+/* Aliases, legend and updates */
+.alias-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  padding:15px;
+}
+
+.alias-link {
+  position:relative;
+}
+
+.alias-link:after {
+  content:"↗";
+  float:right;
+  color:#53668f;
+  margin-left:6px;
+}
+
+.alias-link span {
+  display:none;
+}
+
+.legend-list {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:15px;
+}
+
+.legend-list .status-notice {
+  min-height:32px;
+  margin:0;
+  padding:6px 10px;
+}
+
+.changelog-list {
+  list-style:none;
+  padding:15px 15px 4px;
+}
+
+.changelog-list li {
+  border-left:1px solid var(--border);
+  padding:2px 0 14px 13px;
+  margin-bottom:7px;
+  color:#a7b4d0;
+  line-height:1.8;
+}
+
+.changelog-date {
+  display:block;
+  color:var(--blue);
+  font-weight:bold;
+  margin-bottom:4px;
+}
+
+.changelog-toggle {
+  display:inline-block;
+  margin:0 15px 16px;
+  padding:7px 14px;
+  border:1px solid var(--border);
+  border-radius:7px;
+  background-color:var(--panel);
+  color:var(--blue);
+  cursor:pointer;
+  font:12px var(--font);
+  letter-spacing:.05em;
+  transition:background-color .2s ease,border-color .2s ease,color .2s ease;
+}
+
+.changelog-toggle:hover {
+  color:var(--pink-light);
+  border-color:#6577a2;
+}
+
+.changelog-list .changelog-extra-group {
+  overflow:hidden;
+  padding:0;
+}
+
+.changelog-extra-list {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.contact-email {
+  color:var(--blue);
+  font-weight:bold;
+  text-decoration:underline;
+  overflow-wrap:anywhere;
+}
+
+.contact-email:hover {
+  color:var(--pink-light);
+}
+
+/* Archive notice */
+.archive-help {
+  position:relative;
+  margin:12px 0;
+  padding:13px;
+  color:#a7b4d0;
+  background-color:#0b0e18d9;
+  background-image:
+    radial-gradient(circle,#8badff35 1px,transparent 1.8px),
+    radial-gradient(circle,#ffb4c935 1px,transparent 1.8px),
+    linear-gradient(135deg,#40518b18,#73304418);
+  background-size:73px 79px,113px 107px,100% 100%;
+  background-position:7px 13px,31px 47px,center;
+  border:1px solid var(--border);
+  border-radius:8px;
+  box-shadow:0 0 18px #40518b12;
+  font-size:12px;
+  line-height:1.85;
+}
+
+.archive-help strong {
+  color:var(--pink);
+}
+
+.archive-help p {
+  margin-top:10px;
+}
+
+.archive-help .help-heading {
+  display:block;
+  margin-top:16px;
+}
+
+footer {
+  margin-top:24px;
+  padding:24px 10px 5px;
+  color:var(--muted);
+  border-top:1px solid #28334d;
+  text-align:center;
+  font-size:11px;
+  line-height:1.9;
+}
+
+footer .footer-title {
+  color:var(--blue-light);
+  letter-spacing:1px;
+}
+
+footer a {
+  color:var(--blue);
+  text-decoration:none;
+  transition:color .24s ease;
+}
+
+footer a:hover {
+  color:var(--pink-light);
+  text-decoration:underline;
+}
+
+.status-working {
+  color:#3fae7a;
+  font-weight:700;
+  animation:working-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes working-pulse {
+  0%, 100% {
+    color:#3fae7a;
+    text-shadow:0 0 0 rgba(85,242,155,0);
+  }
+
+  50% {
+    color:#55f29b;
+    text-shadow:0 0 10px rgba(85,242,155,.8);
+  }
+}
+
+.reopen-notice {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  margin:8px auto 0;
+  padding:7px 10px;
+  color:var(--blue-light);
+  background:transparent;
+  border:1px solid var(--border);
+  border-radius:6px;
+  font-size:11px;
+  cursor:pointer;
+  transition:color .25s ease,border-color .25s ease,background-color .25s ease,transform .22s cubic-bezier(.2,.7,.25,1);
+}
+
+.reopen-notice:hover {
+  color:var(--pink-light);
+  border-color:#6577a2;
+  background:#111522;
+}
+
+.reopen-notice:active {
+  transform:scale(.98);
+}
+
+/* Smoother back-to-top button */
+.back-to-top {
+  position:fixed;
+  z-index:20;
+  right:20px;
+  bottom:20px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  min-height:44px;
+  padding:11px 14px;
+  color:var(--blue-light);
+  background:#08090dee;
+  border:1px solid var(--border);
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:translate3d(0,10px,0) scale(.98);
+  transition:
+    opacity .3s ease,
+    transform .32s cubic-bezier(.2,.7,.25,1),
+    color .25s ease,
+    border-color .25s ease,
+    background-color .25s ease,
+    visibility 0s linear .32s;
+  will-change:opacity,transform;
+}
+
+.back-to-top.is-visible {
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translate3d(0,0,0) scale(1);
+  transition:
+    opacity .3s ease,
+    transform .32s cubic-bezier(.2,.7,.25,1),
+    color .25s ease,
+    border-color .25s ease,
+    background-color .25s ease,
+    visibility 0s linear 0s;
+}
+
+.back-to-top:before {
+  content:"↑";
+  font-size:16px;
+  transition:transform .25s ease;
+}
+
+.back-to-top:hover {
+  color:var(--pink-light);
+  border-color:#6577a2;
+  background:#111522;
+}
+
+.back-to-top:hover:before {
+  transform:translateY(-2px);
+}
+
+.back-to-top:active {
+  transform:translate3d(0,1px,0) scale(.98);
+}
+
+/* Mobile layout */
+@media(max-width:600px) {
+  body {
+    padding:10px 5px;
+    font-size:13px;
+  }
+
+  .wrapper {
+    padding:10px 9px 26px;
+    border-radius:10px;
+  }
+
+  header {
+    padding:24px 3px 16px;
+    margin-bottom:16px;
+  }
+
+  header:before {
+    font-size:8px;
+    letter-spacing:1px;
+  }
+
+  h1 {
+    font-size:clamp(22px,7vw,31px);
+    margin-bottom:18px;
+  }
+
+  .subtitle {
+    font-size:10px;
+    letter-spacing:.5px;
+  }
+
+  .top-nav {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    justify-items:stretch;
+    gap:7px;
+  }
+
+  .nav-item {
+    width:100%;
+    min-width:0;
+    min-height:44px;
+    padding:9px 5px;
+    font-size:12px;
+  }
+
+  .nav-item:last-child:nth-child(odd) {
+    grid-column:1/-1;
+  }
+
+  .archive-decoration {
+    gap:12px;
+    margin-bottom:17px;
+  }
+
+  .panel {
+    margin-bottom:15px;
+    scroll-margin-top:10px;
+  }
+
+  .panel-top {
+    padding:13px 43px 13px 12px;
+    font-size:13px;
+  }
+
+  .about-boxes {
+    grid-template-columns:1fr;
+    padding:11px;
+    gap:8px;
+  }
+
+  .about-box.full-width {
+    grid-column:auto;
+  }
+
+  .snapshot-stats {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+    padding:11px;
+  }
+
+  .snapshot-stat {
+    padding:12px 8px;
+    font-size:9px;
+  }
+
+  .snapshot-number {
+    font-size:26px;
+  }
+
+  .snapshot-note {
+    padding:0 11px 12px;
+  }
+
+  .quick-links {
+    padding:12px;
+    gap:7px;
+  }
+
+  .quick-links a {
+    flex:1 1 125px;
+    text-align:center;
+  }
+
+  .search-area {
+    padding:12px;
+  }
+
+  .search-row {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    width:100%;
+  }
+
+  #archive-search {
+    grid-column:1/-1;
+    width:100%;
+    min-height:46px;
+  }
+
+  .search-button {
+    width:100%;
+    min-height:44px;
+    padding:9px 7px;
+  }
+
+  .filter-row {
+    gap:6px;
+    padding:0 12px 12px;
+  }
+
+  .filter-chip {
+    flex:1 1 105px;
+    min-width:0;
+    min-height:42px;
+    padding:9px 7px;
+  }
+
+  .link-list {
+    padding:8px 8px 12px;
+  }
+
+  .row {
+    gap:5px;
+    padding:8px 5px;
+  }
+
+  .row>a {
+    flex:0 1 auto;
+  }
+
+  .status-notice {
+    padding:4px 6px;
+    font-size:9px;
+  }
+
+  .group-heading {
+    font-size:14px;
+    padding:11px 9px;
+  }
+
+  .social-group-heading {
+    padding:13px 43px 13px 10px;
+    font-size:13px;
+  }
+
+  .alias-grid {
+    grid-template-columns:1fr;
+    gap:7px;
+    padding:12px;
+  }
+
+  .legend-list {
+    gap:7px;
+    padding:12px;
+  }
+
+  .changelog-list {
+    padding:12px 10px 4px;
+  }
+
+  .back-to-top {
+    right:12px;
+    bottom:12px;
+  }
+
+  .entry-gate {
+    padding:10px;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .entry-card {
+    flex:0 1 610px;
+    width:100%;
+    max-height:calc(100vh - 20px);
+    max-height:calc(100dvh - 20px);
+    margin:auto;
+  }
+
+  .entry-heading {
+    padding:18px 14px 12px;
+  }
+
+  .entry-kicker {
+    font-size:9px;
+    letter-spacing:1.5px;
+  }
+
+  .entry-heading h2 {
+    font-size:21px;
+  }
+
+  .entry-body {
+    padding:13px 15px 5px;
+    font-size:11px;
+  }
+
+  .entry-footer {
+    padding:12px 15px 14px;
+  }
+
+  .entry-agree-button {
+    width:100%;
+    min-height:48px;
+    font-size:12px;
+  }
+
+  .shooting-star {
+    width:110px;
+  }
+}
+
+@media(max-width:350px) {
+  .wrapper {
+    padding-inline:7px;
+  }
+
+  .nav-item,
+  .filter-chip {
+    font-size:10px;
+  }
+
+  .entry-heading h2 {
+    font-size:19px;
+  }
+
+  .entry-body {
+    padding-inline:12px;
+  }
+
+  .entry-kicker {
+    letter-spacing:1px;
+  }
+
+  .entry-footer {
+    padding-inline:11px;
+  }
+}
+
+@media(hover:none) {
+  .nav-item:hover,
+  .quick-links a:hover,
+  .alias-link:hover,
+  .about-box:hover,
+  .snapshot-stat:hover {
+    transform:none;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior:auto;
+  }
+  /* State fades on the access notice are feedback, not motion; keep them smooth. */
+  .entry-agree-button,
+  .entry-agreement input,
+  .entry-agreement input::after {
+    transition-duration:.25s!important;
+    transition-delay:0s!important;
+  }
+
+  *,
+  *:before,
+  *:after {
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+
+  #shooting-stars,
+  .shooting-star {
+    display:none!important;
+  }
+}
+/* Consistent, polished buttons and clickable boxes */
+button,
+.nav-item,
+.filter-chip,
+.quick-links a,
+.alias-link,
+.row,
+.panel-top,
+.back-to-top {
+  -webkit-tap-highlight-color:transparent;
+}
+.nav-item,
+.filter-chip,
+.quick-links a,
+.alias-link {
+  border:1px solid var(--border);
+  transition:
+    color .22s ease,
+    border-color .22s ease,
+    background-color .22s ease,
+    box-shadow .22s ease,
+    transform .18s ease;
+}
+.nav-item:hover,
+.filter-chip:hover,
+.quick-links a:hover,
+.alias-link:hover {
+  border-color:#6577a2;
+}
+.nav-item:active,
+.filter-chip:active,
+.quick-links a:active,
+.alias-link:active {
+  transform:scale(.98);
+}
+.row a {
+  display:inline-block;
+}
+button:focus-visible,
+a:focus-visible,
+.row:focus-within {
+  outline:2px solid var(--blue-light);
+  outline-offset:2px;
+}
+html.archive-locked #top-button {
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-item,.filter-chip,.quick-links a,.alias-link,.row,.back-to-top { transition:none; }
+}
+
+/* Small layout refinements; all original styles remain above. */
+html,
+.entry-body {
+  scrollbar-gutter:stable;
+}
+.row:focus-within {
+  outline-offset:-2px;
+}
+.contact-email {
+  text-underline-offset:3px;
+  text-decoration-thickness:1px;
+}
+.back-to-top {
+  right:max(12px,env(safe-area-inset-right));
+  bottom:max(12px,env(safe-area-inset-bottom));
+}
+@media(min-width:601px) {
+  .back-to-top {
+    right:max(20px,env(safe-area-inset-right));
+    bottom:max(20px,env(safe-area-inset-bottom));
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  .ambient-glow:after,
+  .corner-decoration,
+  .bg-orb {
+    animation:none;
+  }
+}
+
+/* Fine-line archive details: original typography and layout retained. */
+header { position:relative; border-top:3px double var(--border); }
+header::after { content:""; display:block; width:96px; margin:20px auto 0; border-top:3px double var(--pink); }
+.archive-decoration::before, .archive-decoration::after { content:""; flex:1 1 24px; max-width:140px; border-top:1px solid var(--border); }
+.panel-top { border-left:3px solid var(--blue); border-bottom:1px solid var(--border); }
+.panel:nth-of-type(3n + 2) > .panel-top { border-left-color:var(--pink); }
+.panel:nth-of-type(3n) > .panel-top { border-left-color:var(--mint); }
+.row::before { content:"→"; flex:0 0 14px; color:var(--muted); line-height:1.8; }
+.row:hover::before, .row:focus-within::before { color:var(--pink-light); }
+.snapshot-stat { border-top:2px solid var(--mint); }
+.snapshot-stat:nth-child(2) { border-top-color:var(--pink); }
+.snapshot-stat:nth-child(3) { border-top-color:var(--blue); }
+.snapshot-stat:nth-child(4) { border-top-color:var(--yellow); }
+.alias-link { border-left:2px solid var(--blue); }
+.alias-link::after { color:var(--blue-light); }
+.changelog-list li { position:relative; }
+.changelog-list li:not(.changelog-extra-group)::before { content:""; position:absolute; left:-3px; top:7px; width:5px; height:5px; background:var(--pink); }
+footer { border-top:3px double var(--border); }
+
+/* Hikimate link chooser — reuses the access notice components */
+.hm-gate{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .28s ease,visibility 0s linear .28s}
+.hm-gate.is-open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .28s ease,visibility 0s linear 0s}
+.hm-gate .entry-card{max-width:520px}
+.hm-gate .entry-agree-button{text-decoration:none;margin-bottom:10px}
+.hm-gate .entry-agree-button.hm-live{color:#9eafd7}
+/* Quick links on phones: compact two-column grid, comfortable tap targets. */
+@media(max-width:600px) {
+  .quick-links {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    align-items:stretch;
+    justify-content:stretch;
+    gap:8px;
+    padding:12px;
+  }
+
+  .quick-links a {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:44px;
+    padding:10px 12px;
+    font-size:12px;
+    line-height:1.25;
+    border-radius:8px;
+    touch-action:manipulation;
+  }
+}
+
+@media(max-width:350px) {
+  .quick-links {
+    gap:7px;
+    padding:10px;
+  }
+
+  .quick-links a {
+    padding:9px 8px;
+    font-size:11px;
+  }
+}
+
+/* Focus and press feedback on quick links */
+.quick-links a:focus-visible {
+  outline:2px solid var(--pink-light);
+  outline-offset:3px;
+  border-color:var(--pink-light);
+  background:#111522;
+  box-shadow:0 0 0 4px rgba(255,180,201,.18);
+}
+
+.quick-links a:active {
+  background:#151b2b;
+  border-color:#6577a2;
+}
+
+/* Sticky section menu for phones: compact bar that follows the scroll */
+.section-menu {
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:30;
+  display:none;
+  padding:8px 10px calc(8px + env(safe-area-inset-bottom));
+  background:#08090dee;
+  border-top:1px solid var(--border);
+  opacity:0;
+  visibility:hidden;
+  transform:translate3d(0,10px,0);
+  transition:
+    opacity .28s ease,
+    transform .3s cubic-bezier(.2,.7,.25,1),
+    visibility 0s linear .3s;
+}
+
+.section-menu.is-visible {
+  opacity:1;
+  visibility:visible;
+  transform:translate3d(0,0,0);
+  transition:
+    opacity .28s ease,
+    transform .3s cubic-bezier(.2,.7,.25,1),
+    visibility 0s linear 0s;
+}
+
+.section-menu-track {
+  display:flex;
+  gap:7px;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding:1px;
+}
+
+.section-menu-track::-webkit-scrollbar {
+  display:none;
+}
+
+.section-menu a {
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  min-height:42px;
+  padding:8px 13px;
+  color:var(--blue);
+  font-size:11px;
+  font-weight:bold;
+  white-space:nowrap;
+  text-decoration:none;
+  background:transparent;
+  border:1px solid var(--border);
+  border-radius:7px;
+  touch-action:manipulation;
+  transition:color .25s ease,border-color .25s ease,background-color .25s ease;
+}
+
+.section-menu a:hover {
+  color:var(--pink-light);
+  border-color:#6577a2;
+  background:#111522;
+}
+
+.section-menu a:focus-visible {
+  outline:2px solid var(--pink-light);
+  outline-offset:3px;
+  border-color:var(--pink-light);
+  background:#111522;
+  box-shadow:0 0 0 4px rgba(255,180,201,.18);
+}
+
+.section-menu a:active {
+  background:#151b2b;
+  border-color:#6577a2;
+}
+
+.section-menu a[aria-current="location"] {
+  color:var(--pink-light);
+  border-color:#6577a2;
+  background:#111522;
+}
+
+@media(max-width:600px) {
+  .section-menu {
+    display:block;
+  }
+
+  body.menu-shown {
+    padding-bottom:74px;
+  }
+
+  body.menu-shown .back-to-top {
+    bottom:calc(66px + env(safe-area-inset-bottom));
+  }
+}
+
+html.archive-locked .section-menu {
+  display:none !important;
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .section-menu,
+  .section-menu a {
+    transition:none;
+  }
+}
+
+/* Legend words + smoother feel */
+.legend-word{font-weight:700;padding:1px 6px;border-radius:5px;background:color-mix(in srgb,var(--status-light) 14%,transparent);color:var(--status-light);text-shadow:0 0 8px color-mix(in srgb,var(--status-light) 45%,transparent)}
+.status-note p{line-height:1.7}
+.row{transition:background-color .25s ease,transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease}
+@media (hover:hover){.row:hover{transform:translateX(3px);background-color:rgba(140,169,239,.06)}}
+.row a,.filter-chip,.nav-item,.panel-top,.status-notice,.quick-links a,.alias-link{transition:color .2s ease,background-color .2s ease,border-color .2s ease,box-shadow .25s ease,transform .18s cubic-bezier(.2,.8,.2,1)}
+.filter-chip:active,.nav-item:active,.panel-top:active,.quick-links a:active{transform:scale(.96)}
+.row.is-dual-status .status-notice+.status-notice{margin-left:6px}
+@keyframes row-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.row:not([hidden]){animation:row-in .35s cubic-bezier(.2,.8,.2,1) both}
+.panel{transition:box-shadow .3s ease,border-color .3s ease}
+@media (prefers-reduced-motion:reduce){.row,.row:not([hidden]){animation:none;transition:none}}
+
+.footer-ornament{color:#53668f;letter-spacing:.05em}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease,border-color .3s ease}
+.reveal.is-revealed{opacity:1;transform:none}
+@media (hover:hover){.panel:hover{border-color:#3d4f7a;box-shadow:0 8px 30px -14px rgba(140,169,239,.35)}}
+.snapshot-number{font-variant-numeric:tabular-nums}
+
+/* Section menu on computers: floating bar at the top */
+@media(min-width:601px){
+  .section-menu{display:block;top:12px;bottom:auto;left:50%;right:auto;width:max-content;max-width:calc(100vw - 32px);
+    padding:6px;border:1px solid var(--border);border-radius:12px;background:#08090de6;
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 30px -12px rgba(0,0,0,.7);
+    transform:translate3d(-50%,-10px,0)}
+  .section-menu.is-visible{transform:translate3d(-50%,0,0)}
+  .section-menu a{min-height:34px;padding:6px 12px}
+}
+@media(max-width:600px){.section-menu{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}}
+.section-menu a[aria-current="location"]{box-shadow:inset 0 -2px 0 var(--pink-light)}
+.back-to-top{box-shadow:0 8px 24px -10px rgba(0,0,0,.8)}
+@media (hover:hover){.back-to-top:hover{transform:translate3d(0,-2px,0);border-color:#6577a2;color:var(--pink-light)}}
+</style>
+</head>
+
+<body>
+<div id="scroll-progress" aria-hidden="true"></div>
+<div class="ambient-glow" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-orbs" aria-hidden="true"><span class="bg-orb blue"></span><span class="bg-orb pink"></span><span class="bg-orb mint"></span></div>
+<div class="bg-vignette" aria-hidden="true"></div>
+<div id="cornerDecorations" aria-hidden="true"></div>
+<div id="shooting-stars" aria-hidden="true"></div>
+
+<!-- ACCESS NOTICE -->
+<div class="entry-gate" id="entry-gate" role="dialog" aria-modal="true" aria-labelledby="entry-title" aria-describedby="entry-description">
+  <div class="entry-card">
+    <button type="button" class="entry-close" id="entry-close" aria-label="Close notice" hidden>&times;</button>
+    <div class="entry-heading">
+      <p class="entry-kicker">Zombiebeatz2000 · an independent fan project</p>
+      <h2 id="entry-title">Archive Notice</h2>
+      <p class="entry-subtitle">Please read before entering</p>
+      <div class="entry-ornament" aria-hidden="true"><span>✧</span><span>✦</span><span>✧</span></div>
+    </div>
+
+    <div class="entry-body" id="entry-description" tabindex="0">
+      <p>This is an <strong>independent, non-commercial fan archive</strong> for links related to Zombiebeatz2000 and other usernames connected to the project. It helps people find older pages and content that can be found online.</p>
+
+      <h3>About This Website</h3>
+      <p>This archive is <strong>not run by or affiliated with Ashley Sakura Hanrahan, Hikkiarchive, or anyone else mentioned here</strong>. It does not speak for them or represent their views.</p>
+
+      <h3>Please Use This Site Responsibly</h3>
+      <p><strong>Do not use this archive to hack accounts, expose private information, harass or threaten anyone, stalk people, or pretend to be someone else.</strong> Do not use its links to get around security or <strong>access accounts without permission</strong>.</p>
+      <p>Just because something is public <strong>doesn’t mean it’s okay to invade someone’s privacy</strong> or contact them when they don’t want you to.</p>
+
+      <h3>Links and Status Labels</h3>
+      <p>This site is a reference list to make older pages easier to find. Some links may stop working, and information or status labels may be incomplete or out of date. The labels are added by this archive and <strong>are not official statements from the people or platforms mentioned</strong>.</p>
+      <p>The linked websites have their own rules and privacy settings. Including a link here does not mean I own or control that website or agree with everything on it.</p>
+
+      <h3>Photo Archive</h3>
+      <p>The Hikkichan Picture Archive links to a photo collection hosted on Google Photos. The photos are hosted there, not on this website.</p>
+      <p>Photos may be reused, but please respect people’s privacy and safety. Do not use them to expose private details, impersonate someone, threaten anyone, or encourage unwanted contact. <strong>Never use this archive to exploit or sexualize minors or to share unlawful or intimate images.</strong></p>
+      <p>If you have a concern about a photo, including copyright, consent, privacy, or safety, contact me through Contact and Corrections. <strong>You don’t need to own the copyright to report a concern.</strong> You can also report issues directly to Google Photos.</p>
+
+      <h3>Ownership and Removal Requests</h3>
+      <p>The names, usernames, images, videos, music, artwork, and other material linked here <strong>belong to their respective owners</strong>. This archive does not claim ownership of their work.</p>
+      <p>If a link is broken or something raises a copyright, privacy, or other concern, contact me with the link and a short explanation. I’ll review it and make changes or remove material where appropriate.</p>
+
+      <p class="legal-small">This notice explains the purpose of the archive. It does not give permission to use someone else’s content, override the law, or guarantee that a link or page cannot be challenged or removed.</p>
+    </div>
+
+    <div class="entry-footer">
+      <label class="entry-agreement" for="agree-checkbox">
+        <input type="checkbox" id="agree-checkbox">
+        <span>I understand this is an independent fan archive, and I agree not to use it for hacking, doxxing, harassment, or any other harm.</span>
+      </label>
+      <button class="entry-agree-button" id="agree-button" type="button" disabled>I agree, enter archive</button>
+      <p class="entry-error" id="entry-error" aria-live="polite"></p>
+      <p class="entry-footnote">✧ Independent fan archive · no official affiliation ✧</p>
+    </div>
+  </div>
+</div>
+
+<main class="wrapper">
+<header id="top">
+  <h1>Earth’s Hikkichan Archive</h1>
+  <p class="subtitle">A username showcase · est. 2026</p>
+</header>
+
+<div class="archive-decoration" aria-hidden="true"><span>✧</span><span>✦</span><span>✧</span><span>✦</span><span>✧</span></div>
+
+<section class="panel" id="about-section">
+  <button class="panel-top" type="button" aria-expanded="true">About This Archive</button>
+  <div class="about-boxes">
+    <div class="about-box"><h3>What is this?</h3><p>This is a fan-made archive of public links and older web pages connected to different usernames. It brings channels, websites, and profiles together so they’re easier to find in one place.</p></div>
+    <div class="about-box"><h3>Why was it made?</h3><p>I made this version to include more links than the last one and make everything easier to browse.</p></div>
+    <div class="about-box full-width"><h3>An independent fan project</h3><p>This archive isn’t connected to, sponsored by, or approved by Ashley Sakura Hanrahan or the original Hikkiarchive. It doesn’t represent their views or opinions.</p></div>
+    <div class="about-box full-width"><h3>Links and ownership</h3><p>The links are here for reference. I don’t own the accounts or content linked on this site. Names, photos, videos, music, artwork, and other material belong to their respective owners.</p></div>
+  </div>
+</section>
+
+<section class="panel" id="snapshot-section">
+  <button class="panel-top" type="button" aria-expanded="true">Archive snapshot</button>
+  <p class="panel-subtext">A quick look at what's currently listed in the archive.</p>
+
+  <div class="snapshot-stats" aria-label="Archive statistics">
+    <div class="snapshot-stat">
+      <span class="snapshot-number" data-count="all-links">0</span>
+      <span class="snapshot-label">Links indexed</span>
+    </div>
+    <div class="snapshot-stat">
+      <span class="snapshot-number" data-count="youtube-links">0</span>
+      <span class="snapshot-label">YouTube links</span>
+    </div>
+    <div class="snapshot-stat">
+      <span class="snapshot-number" data-count="profile-links">0</span>
+      <span class="snapshot-label">Other profiles</span>
+    </div>
+    <div class="snapshot-stat">
+      <span class="snapshot-number" data-count="aliases">0</span>
+      <span class="snapshot-label">Aliases listed</span>
+    </div>
+  </div>
+
+  <p class="snapshot-note">These numbers come from the entries listed on this page. A link being listed here doesn’t mean it still works, or that its status has been double-checked.</p>
+</section>
+
+<section class="panel" id="quick-section">
+  <button class="panel-top" type="button" aria-expanded="true">Quick links</button>
+  <p class="panel-subtext">Jump straight to any section.</p>
+  <div class="quick-links">
+    <a href="#snapshot-section">Archive snapshot</a>
+    <a href="#archive-section">Archive links</a>
+    <a href="#blogs-section">Blogs and Websites</a>
+    <a href="#yt-section">YouTube channels</a>
+    <a href="#media-section">Other Profiles</a>
+    <a href="#aliases-section">Username index</a>
+    <a href="#status-section">Status labels</a>
+    <a href="#updates-section">Updates</a>
+    <a href="#contact-section">Contact</a>
+  </div>
+</section>
+
+<section class="panel" id="search-section">
+  <button class="panel-top" type="button" aria-expanded="true">Search and filter the archive</button>
+  <div class="search-area">
+    <label class="search-label" for="archive-search">Search for a name, channel or link</label>
+    <div class="search-row">
+      <input id="archive-search" type="search" placeholder="Type a name or keyword..." autocomplete="off" aria-label="Search the archive" aria-describedby="search-status" spellcheck="false">
+      <button class="search-button" id="search-button" type="button">Search</button>
+      <button class="search-button" id="clear-button" type="button">Reset all</button>
+    </div>
+    <p id="search-status" aria-live="polite">Showing all entries. Use the filters to narrow down the list.</p>
+  </div>
+
+  <div class="filter-row" aria-label="Filter archive entries">
+    <button class="filter-chip" data-filter="all" aria-pressed="true" type="button">Everything</button>
+    <button class="filter-chip" data-filter="youtube" aria-pressed="false" type="button">YouTube</button>
+    <button class="filter-chip" data-filter="blog" aria-pressed="false" type="button">Blogs and Websites</button>
+    <button class="filter-chip" data-filter="media" aria-pressed="false" type="button">Other Profiles</button>
+    <button class="filter-chip" data-filter="archived" aria-pressed="false" type="button">Archived / unavailable</button>
+    <button class="filter-chip status-filter-available" data-filter="available" aria-pressed="false" type="button">Active</button>
+    <button class="filter-chip status-filter-corrupted" data-filter="corrupted" aria-pressed="false" type="button">Corrupted</button>
+    <button class="filter-chip status-filter-banned" data-filter="banned" aria-pressed="false" type="button">Banned</button>
+    <button class="filter-chip status-filter-deleted" data-filter="deleted" aria-pressed="false" type="button">Deleted</button>
+  </div>
+</section>
+
+<!-- ARCHIVE LINKS -->
+<section class="panel searchable-panel" id="archive-section">
+  <button class="panel-top" type="button" aria-expanded="true">Archive and reference links</button>
+  <p class="panel-subtext">Saved items and archive resources, including the photo collection.</p>
+  <div class="link-list">
+    <div class="row" data-category="youtube">
+      <a href="https://www.youtube.com/@zombiebeatz2000archive" target="_blank" rel="noopener noreferrer">YouTube Archive</a>
+      <span class="status-notice status-available">Archive channel</span>
+    </div>
+
+    <div class="row" data-category="archived">
+      <a href="https://archive.org/details/i-am-house-cat-gao-gao" target="_blank" rel="noopener noreferrer">I Am House Cat (Gao Gao)</a>
+      <span class="status-notice status-available">Archived item</span>
+    </div>
+
+    <div class="row" data-category="archived">
+      <a href="https://web.archive.org/web/20100819070242/http://hikimate.com/index.php" target="_blank" rel="noopener noreferrer">Hikimate (Wayback Machine)</a>
+      <span class="status-notice status-available">Archived page</span>
+    </div>
+
+    <div class="row" data-category="archived">
+      <a href="https://photos.google.com/share/AF1QipN0ZgNv6D1AcZurHscwgj8m67RC8JOAvno6UXdvkJbfIag_qKVjEiJBRmNhbayraQ?key=RDBKR2NWOUZhdkVJblpvWWE2V29tUGFJS3hiVmhB" target="_blank" rel="noopener noreferrer">Hikkichan Picture Archive</a>
+      <span class="status-notice status-available">580 photos</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ALL BLOGS AND PERSONAL WEBSITES IN ONE PLACE -->
+<section class="panel searchable-panel" id="blogs-section">
+  <button class="panel-top" type="button" aria-expanded="true">Blogs and personal websites</button>
+  <p class="panel-subtext">Blog pages and personal websites from different parts of the archive, grouped here so they’re easier to find.</p>
+
+  <div class="link-list media">
+    <div class="group-heading">WordPress</div>
+    <div class="row" data-category="blog"><a href="https://visiunadeshiko.wordpress.com" target="_blank" rel="noopener noreferrer">VisiuNadeshiko on WordPress</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="blog"><a href="https://nadesicola.wordpress.com" target="_blank" rel="noopener noreferrer">Nadesicola on WordPress</a><span class="status-notice status-available">Active</span></div>
+
+    <div class="group-heading">Tumblr</div>
+    <div class="row" data-category="blog"><a href="https://shiiiiiiiiiiiiiiiiiiiiiiii-blog2.tumblr.com/" target="_blank" rel="noopener noreferrer">Shiiiiiiiiiiiiiiiiiiiiiiii Blog</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="blog"><a href="https://tteyuu.tumblr.com/" target="_blank" rel="noopener noreferrer">tteyuu Tumblr</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="blog"><a href="https://rhombicdodecahedron.tumblr.com/" target="_blank" rel="noopener noreferrer">rhombicdodecahedron Tumblr</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="blog"><a href="https://nadesico-la.tumblr.com/" target="_blank" rel="noopener noreferrer">nadesico-la Tumblr</a><span class="status-notice status-corrupt">Corrupted</span></div>
+
+    <div class="group-heading">Blogger and Blogspot</div>
+    <div class="row" data-category="blog"><a href="https://dadadadadadadadadadadafullcombo.blogspot.com/" target="_blank" rel="noopener noreferrer">Dadadadadadadadadadadada Full Combo Blog</a><span class="status-notice status-deleted">Deleted</span></div>
+    <div class="row" data-category="blog"><a href="https://www.blogger.com/profile/07544973948874550875" target="_blank" rel="noopener noreferrer">Blogger Profile</a><span class="status-notice status-deleted">Deleted</span></div>
+    <div class="row" data-category="blog"><a href="https://4649nadeshiko.blogspot.com/" target="_blank" rel="noopener noreferrer">4649nadeshiko Blog</a><span class="status-notice status-available">Active</span></div>
+
+    <div class="group-heading">Cocolog</div>
+    <div class="row" data-category="blog"><a href="http://potatodanmaku.cocolog-nifty.com/" target="_blank" rel="noopener noreferrer">Cocolog: potatodanmaku</a><span class="status-notice status-available">Active</span></div>
+  </div>
+</section>
+
+<!-- YOUTUBE CHANNELS -->
+<section class="panel searchable-panel" id="yt-section">
+  <button class="panel-top" type="button" aria-expanded="true">YouTube channels</button>
+  <p class="panel-subtext">YouTube links kept for reference. The statuses are notes from this archive, not official statements from the platforms.</p>
+
+  <div class="link-list youtube-list">
+    <div class="group-heading">Active</div>
+    <div class="row" data-category="youtube"><a href="https://www.youtube.com/@zombiebeatz2000" target="_blank" rel="noopener noreferrer">Zombiebeatz2000</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="youtube"><a href="https://www.youtube.com/SadnessCake" target="_blank" rel="noopener noreferrer">SadnessCake</a><span class="status-notice status-available">Active</span></div>
+
+    <div class="group-heading">Deleted</div>
+    <div class="row" data-category="youtube"><a href="https://www.youtube.com/@nadesicola" target="_blank" rel="noopener noreferrer">Nadesicola</a><span class="status-notice status-deleted">Deleted</span></div>
+    <div class="row" data-category="youtube"><a href="https://www.youtube.com/@Ddead__channel" target="_blank" rel="noopener noreferrer">Ddead__channel</a><span class="status-notice status-deleted">Deleted</span></div>
+
+    <div class="group-heading">Corrupted</div>
+    <div class="row" data-category="youtube"><a href="https://www.youtube.com/@NorikonStation" target="_blank" rel="noopener noreferrer">NorikonStation</a><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row" data-category="youtube"><a href="https://www.youtube.com/@nori314156" target="_blank" rel="noopener noreferrer">nori314156</a><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row" data-category="youtube"><a href="https://www.youtube.com/@nyaxnyaxnekoxnyaxx" target="_blank" rel="noopener noreferrer">nyaxnyaxnekoxnyaxx</a><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row" data-category="youtube"><a href="https://www.youtube.com/@37564nadeshiko" target="_blank" rel="noopener noreferrer">37564nadeshiko</a><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row is-dual-status" data-category="youtube"><a href="https://www.youtube.com/@AtsumiNyan" target="_blank" rel="noopener noreferrer">AtsumiNyan</a><span class="status-notice status-deleted">Deleted</span><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row is-dual-status" data-category="youtube"><a href="https://www.youtube.com/@nnnnnnhhhhhhhhh" target="_blank" rel="noopener noreferrer">nnnnnnhhhhhhhhh</a><span class="status-notice status-deleted">Deleted</span><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row is-dual-status" data-category="youtube"><a href="https://www.youtube.com/@binabinabinaaa" target="_blank" rel="noopener noreferrer">binabinabinaaa</a><span class="status-notice status-deleted">Deleted</span><span class="status-notice status-corrupt">Corrupted</span></div>
+  </div>
+</section>
+
+<!-- OTHER PROFILES -->
+<section class="panel searchable-panel" id="media-section">
+  <button class="panel-top" type="button" aria-expanded="true">Other websites and profiles</button>
+  <p class="panel-subtext">Social accounts, music profiles, and other platform pages. Open a platform heading to see its links.</p>
+
+  <div class="link-list media">
+    <div class="group-heading">SoundCloud</div>
+    <div class="row" data-category="media"><a href="https://soundcloud.com/37564nadeshiko" target="_blank" rel="noopener noreferrer">37564nadeshiko</a><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row" data-category="media"><a href="https://soundcloud.com/4649nadeshiko" target="_blank" rel="noopener noreferrer">4649nadeshiko</a><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row" data-category="media"><a href="https://soundcloud.com/nadesicodeine" target="_blank" rel="noopener noreferrer">nadesicodeine</a><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row" data-category="media"><a href="https://soundcloud.com/nadeshicola" target="_blank" rel="noopener noreferrer">nadeshicola</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="media"><a href="https://soundcloud.com/nadesico-la" target="_blank" rel="noopener noreferrer">nadesico-la</a><span class="status-notice status-corrupt">Corrupted</span></div>
+
+    <div class="group-heading">Freesound</div>
+    <div class="row" data-category="media"><a href="https://freesound.org/people/nnnnnnhhhhhhhhh/#sounds" target="_blank" rel="noopener noreferrer">nnnnnnhhhhhhhhh</a><span class="status-notice status-available">Active</span></div>
+
+    <div class="group-heading">Discogs</div>
+    <div class="row" data-category="media"><a href="https://www.discogs.com/release/3794052-4649nadeshiko-Cooliostreetcat" target="_blank" rel="noopener noreferrer">4649nadeshiko - Cooliostreetcat</a><span class="status-notice status-available">Active</span></div>
+
+    <div class="group-heading">Last.fm</div>
+    <div class="row" data-category="media"><a href="https://www.last.fm/music/4649nadeshiko" target="_blank" rel="noopener noreferrer">4649nadeshiko</a><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row" data-category="media"><a href="https://www.last.fm/user/nadesicola" target="_blank" rel="noopener noreferrer">nadesicola</a><span class="status-notice status-deleted">Deleted</span></div>
+    <div class="row" data-category="media"><a href="https://www.last.fm/user/n37564" target="_blank" rel="noopener noreferrer">n37564</a><span class="status-notice status-deleted">Deleted</span></div>
+
+    <div class="group-heading">DeviantArt</div>
+    <div class="row" data-category="media"><a href="https://www.deviantart.com/4649nadeshiko" target="_blank" rel="noopener noreferrer">4649nadeshiko</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="media"><a href="https://www.deviantart.com/tamama-nitouhei" target="_blank" rel="noopener noreferrer">tamama-nitouhei</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="media"><a href="https://www.deviantart.com/sukiix" target="_blank" rel="noopener noreferrer">sukiix</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="media"><a href="https://www.deviantart.com/rinserona" target="_blank" rel="noopener noreferrer">rinserona</a><span class="status-notice status-deleted">Deleted</span></div>
+    <div class="row" data-category="media"><a href="https://www.deviantart.com/supremekitty" target="_blank" rel="noopener noreferrer">supremekitty</a><span class="status-notice status-deleted">Deleted</span></div>
+    <div class="row" data-category="media"><a href="https://www.deviantart.com/norikology" target="_blank" rel="noopener noreferrer">norikology</a><span class="status-notice status-deleted">Deleted</span></div>
+    <div class="row" data-category="media"><a href="https://www.deviantart.com/cooliostreetcat" target="_blank" rel="noopener noreferrer">cooliostreetcat</a><span class="status-notice status-deleted">Deleted</span></div>
+
+    <div class="group-heading">Ask.fm</div>
+    <div class="row" data-category="media"><a href="https://ask.fm/nadesicola" target="_blank" rel="noopener noreferrer">nadesicola</a><span class="status-notice status-deleted">Deleted</span></div>
+    <div class="row" data-category="media"><a href="https://ask.fm/4649nadeshiko" target="_blank" rel="noopener noreferrer">4649nadeshiko</a><span class="status-notice status-deleted">Deleted</span></div>
+    <div class="row" data-category="media"><a href="https://ask.fm/norikology" target="_blank" rel="noopener noreferrer">norikology</a><span class="status-notice status-deleted">Deleted</span></div>
+
+    <div class="group-heading">Reddit</div>
+    <div class="row" data-category="media"><a href="https://www.reddit.com/user/vipstar0000/" target="_blank" rel="noopener noreferrer">vipstar0000</a><span class="status-notice status-deleted">Deleted</span></div>
+
+    <div class="group-heading">ED Support Forum</div>
+    <div class="row" data-category="media"><a href="https://www.edsupportforum.com/threads/i-really-need-you-guys.44426/" target="_blank" rel="noopener noreferrer">I Really Need You Guys</a><span class="status-notice status-available">Active</span></div>
+
+    <div class="group-heading">Gravatar</div>
+    <div class="row" data-category="media"><a href="https://gravatar.com/nadesicola" target="_blank" rel="noopener noreferrer">nadesicola</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="media"><a href="https://gravatar.com/visiunadeshiko" target="_blank" rel="noopener noreferrer">visiunadeshiko</a><span class="status-notice status-available">Active</span></div>
+
+    <div class="group-heading">MySpace</div>
+    <div class="row" data-category="media"><a href="https://myspace.com/nori314159265" target="_blank" rel="noopener noreferrer">nori314159265</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="media"><a href="https://myspace.com/hardcorexnekoxnyaxx" target="_blank" rel="noopener noreferrer">hardcorexnekoxnyaxx</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="media"><a href="https://myspace.com/randommusictimegt3" target="_blank" rel="noopener noreferrer">randommusictimegt3</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="media"><a href="https://myspace.com/2d2d2d" target="_blank" rel="noopener noreferrer">2d2d2d</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="media"><a href="https://myspace.com/okrhombus" target="_blank" rel="noopener noreferrer">okrhombus</a><span class="status-notice status-available">Active</span></div>
+
+    <div class="group-heading">Pinterest</div>
+    <div class="row" data-category="media"><a href="https://www.pinterest.com/cooliostreetcat/" target="_blank" rel="noopener noreferrer">cooliostreetcat</a><span class="status-notice status-corrupt">Corrupted</span></div>
+
+    <div class="group-heading">Twitter / X</div>
+    <div class="row" data-category="media"><a href="https://x.com/nadesicola" target="_blank" rel="noopener noreferrer">nadesicola</a><span class="status-notice status-banned">Banned</span></div>
+    <div class="row is-dual-status" data-category="media"><a href="https://x.com/nadesicodeine" target="_blank" rel="noopener noreferrer">nadesicodeine</a><span class="status-notice status-deleted">Deleted</span><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row is-dual-status" data-category="media"><a href="https://x.com/cooliostreetcat" target="_blank" rel="noopener noreferrer">cooliostreetcat</a><span class="status-notice status-deleted">Deleted</span><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row" data-category="media"><a href="https://x.com/norikology" target="_blank" rel="noopener noreferrer">norikology</a><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row" data-category="media"><a href="https://x.com/potatodanmaku" target="_blank" rel="noopener noreferrer">potatodanmaku</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="media"><a href="https://x.com/norikonchan" target="_blank" rel="noopener noreferrer">norikonchan</a><span class="status-notice status-available">Active</span></div>
+    <div class="row is-dual-status" data-category="media"><a href="https://x.com/bombiberite" target="_blank" rel="noopener noreferrer">bombiberite</a><span class="status-notice status-deleted">Deleted</span><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row" data-category="media"><a href="https://x.com/sonyashnyky" target="_blank" rel="noopener noreferrer">sonyashnyky</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="media"><a href="https://x.com/mori.shiba720" target="_blank" rel="noopener noreferrer">mori.shiba720</a><span class="status-notice status-deleted">Deleted</span></div>
+    <div class="row" data-category="media"><a href="https://x.com/dancefloor_degrader" target="_blank" rel="noopener noreferrer">dancefloor_degrader</a><span class="status-notice status-deleted">Deleted</span></div>
+    <div class="row" data-category="media"><a href="https://x.com/sodapopangel" target="_blank" rel="noopener noreferrer">sodapopangel</a><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row" data-category="media"><a href="https://x.com/vipstar0000" target="_blank" rel="noopener noreferrer">vipstar0000</a><span class="status-notice status-deleted">Deleted</span></div>
+    <div class="row" data-category="media"><a href="https://x.com/dopamina" target="_blank" rel="noopener noreferrer">dopamina</a><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row" data-category="media"><a href="https://x.com/rzfdsddsrk" target="_blank" rel="noopener noreferrer">rzfdsddsrk</a><span class="status-notice status-deleted">Deleted</span></div>
+
+    <div class="group-heading">Instagram</div>
+    <div class="row" data-category="media"><a href="https://www.instagram.com/flight.f35/" target="_blank" rel="noopener noreferrer">flight.f35</a><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row" data-category="media"><a href="https://www.instagram.com/sonyashnyky/" target="_blank" rel="noopener noreferrer">sonyashnyky</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="media"><a href="https://www.instagram.com/vipstar0000/" target="_blank" rel="noopener noreferrer">vipstar0000</a><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row" data-category="media"><a href="https://www.instagram.com/dopamina/" target="_blank" rel="noopener noreferrer">dopamina</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="media"><a href="https://www.instagram.com/mori.shiba720/" target="_blank" rel="noopener noreferrer">mori.shiba720</a><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row" data-category="media"><a href="https://www.instagram.com/dancefloor_degrader/" target="_blank" rel="noopener noreferrer">dancefloor_degrader</a><span class="status-notice status-corrupt">Corrupted</span></div>
+    <div class="row" data-category="media"><a href="https://www.instagram.com/sodapopangel/" target="_blank" rel="noopener noreferrer">sodapopangel</a><span class="status-notice status-deleted">Deleted</span></div>
+    <div class="row" data-category="media"><a href="https://www.instagram.com/goodchoice_cc/" target="_blank" rel="noopener noreferrer">goodchoice_cc</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="media"><a href="https://www.instagram.com/teamgoodchoice/" target="_blank" rel="noopener noreferrer">teamgoodchoice</a><span class="status-notice status-deleted">Deleted</span></div>
+
+    <div class="group-heading">Facebook</div>
+    <div class="row" data-category="media"><a href="https://www.facebook.com/HotChocolateBassoonMan" target="_blank" rel="noopener noreferrer">HotChocolateBassoonMan</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="media"><a href="https://www.facebook.com/ashley.hanrahan.33" target="_blank" rel="noopener noreferrer">ashley.hanrahan.33</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="media"><a href="https://www.facebook.com/public/Kool-Princess-Nadeshicola" target="_blank" rel="noopener noreferrer">Kool-Princess-Nadeshicola</a><span class="status-notice status-deleted">Deleted</span></div>
+    <div class="row" data-category="media"><a href="https://www.facebook.com/bangingyourmomsofast" target="_blank" rel="noopener noreferrer">bangingyourmomsofast</a><span class="status-notice status-deleted">Deleted</span></div>
+    <div class="row" data-category="media"><a href="https://www.facebook.com/sassssycat" target="_blank" rel="noopener noreferrer">sassssycat</a><span class="status-notice status-deleted">Deleted</span></div>
+    <div class="row" data-category="media"><a href="https://www.facebook.com/hoodcatfresh" target="_blank" rel="noopener noreferrer">hoodcatfresh</a><span class="status-notice status-available">Active</span></div>
+    <div class="row" data-category="media"><a href="https://www.facebook.com/37564nadeshiko" target="_blank" rel="noopener noreferrer">37564nadeshiko</a><span class="status-notice status-deleted">Deleted</span></div>
+
+    <div class="group-heading">Duolingo</div>
+    <div class="row" data-category="media"><a href="https://www.duolingo.com/profile/37564nadeshiko" target="_blank" rel="noopener noreferrer">37564nadeshiko</a><span class="status-notice status-deleted">Deleted</span></div>
+    <div class="row" data-category="media"><a href="https://www.duolingo.com/profile/sadnesscake" target="_blank" rel="noopener noreferrer">sadnesscake</a><span class="status-notice status-available">Active</span></div>
+
+    <div class="group-heading">Poshmark</div>
+    <div class="row" data-category="media"><a href="https://poshmark.com/closet/kiwka" target="_blank" rel="noopener noreferrer">kiwka</a><span class="status-notice status-deleted">Deleted</span></div>
+
+    <div class="group-heading">Steam</div>
+    <div class="row" data-category="media"><a href="https://steamcommunity.com/id/somesortofinsanelolijetmachine/" target="_blank" rel="noopener noreferrer">somesortofinsane</a><span class="status-notice status-deleted">Deleted</span></div>
+
+    <div class="group-heading">Steam Groups</div>
+    <div class="row" data-category="media"><a href="https://steamcommunity.com/groups/777crycry" target="_blank" rel="noopener noreferrer">777crycry</a><span class="status-notice status-available">Active</span></div>
+  </div>
+</section>
+
+<section class="panel searchable-panel" id="aliases-section">
+  <button class="panel-top" type="button" aria-expanded="true">Username index</button>
+  <p class="panel-subtext">All the usernames used as labels on this page. Pick one to jump to a related section.</p>
+  <div class="alias-grid">
+    <a class="alias-link" href="#yt-section" data-category="youtube">Zombiebeatz2000</a>
+    <a class="alias-link" href="#blogs-section" data-category="blog">Hikkichan</a>
+    <a class="alias-link" href="#yt-section" data-category="youtube">Noriko</a>
+    <a class="alias-link" href="#blogs-section" data-category="blog">4649nadeshiko</a>
+    <a class="alias-link" href="#yt-section" data-category="youtube">37564nadeshiko</a>
+    <a class="alias-link" href="#media-section" data-category="media">Nadesicola</a>
+    <a class="alias-link" href="#media-section" data-category="media">Other Aliases</a>
+  </div>
+</section>
+
+<section class="panel" id="status-section">
+  <button class="panel-top" type="button" aria-expanded="true">What the status labels mean</button>
+  <p class="panel-subtext">A quick guide to the labels used on this page.</p>
+  <div class="legend-list">
+    <span class="status-notice status-available">Active</span>
+    <span class="status-notice status-deleted">Deleted</span>
+    <span class="status-notice status-banned">Banned</span>
+    <span class="status-notice status-corrupt">Corrupted</span>
+  </div>
+  <div class="panel-content small-note status-note">
+    <p><strong class="legend-word status-available">Active</strong> means the link was working when it was checked. It doesn’t mean the account is still active or belongs to the same person.</p>
+    <p><strong class="legend-word status-deleted">Deleted</strong> means the account or channel was recorded as deleted.</p>
+    <p><strong class="legend-word status-banned">Banned</strong> means the account or channel was recorded as banned.</p>
+    <p><strong class="legend-word status-corrupt">Corrupted</strong> means the account or content is missing, incomplete, or has been changed in some way, such as an account being taken over.</p>
+    <p>These labels are based on the archive’s own records, not official statements. They may change as new information comes up.</p>
+  </div>
+</section>
+
+<section class="panel" id="updates-section">
+  <button class="panel-top" type="button" aria-expanded="true">Recent Updates</button>
+  <ul class="changelog-list">
+    <li><span class="changelog-date">November 24, 2026</span>Rechecked every link. Some old usernames are being used again, so 10 links were moved to Corrupted. One Facebook link is back to Active, and the Poshmark link is now Deleted.</li>
+    <li><span class="changelog-date">October 23, 2026</span>Added back a couple of links that were missing from the old Hikkichan Archive, including Instagram, Ask.fm, Reddit, and DeviantArt. Checked their statuses again.</li>
+    <li><span class="changelog-date">October 22, 2026</span>Fixed the Facebook statuses, tidied up the username index, made the buttons and boxes more consistent, and made the access notice faster.</li>
+    <li class="changelog-extra-group" id="updates-extra" hidden aria-hidden="true">
+      <div class="changelog-extra-clip">
+        <ul class="changelog-extra-list">
+          <li><span class="changelog-date">October 19, 2026</span>Added a live archive snapshot and made a few improvements to search, navigation, and the background effects.</li>
+          <li><span class="changelog-date">October 18, 2026</span>Added more links from different platforms and sorted them into the right sections.</li>
+          <li><span class="changelog-date">October 17, 2026</span>Made some changes to the layout and updated the status labels.</li>
+        </ul>
+      </div>
+    </li>
+    <li><span class="changelog-date">Ongoing</span>Going through links, checking what still works, and adding anything that’s missing.</li>
+  </ul>
+  <button class="changelog-toggle" id="updates-toggle" type="button" aria-expanded="false" aria-controls="updates-extra">View more updates (3)</button>
+</section>
+
+<section class="panel" id="contact-section">
+  <button class="panel-top" type="button" aria-expanded="true">Contact and corrections</button>
+  <div class="panel-content intro-text">
+    If a link needs fixing or removing, let me know below and explain what needs changing. For photo requests, include the album or image link if you have it. If you’re contacting me for someone else, briefly explain the situation. You can also report privacy or safety concerns, even if you don’t own the copyright.
+
+    <p class="small-note">Removing a link from this page won’t remove the original content from other websites. I can review and remove photos from my Google Photos collection, but I can’t control what other websites do. I can’t guarantee a response time or outcome.</p>
+    <br><br>Discord: <strong>@earththeearthling</strong>
+    <br><br>Email: <a class="contact-email" data-contact="Ym9rdXNhdHN1eHRlbnNoaUB5YWhvby5jb20="></a><noscript><a class="contact-email" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#98;&#111;&#107;&#117;&#115;&#97;&#116;&#115;&#117;&#120;&#116;&#101;&#110;&#115;&#104;&#105;&#64;&#121;&#97;&#104;&#111;&#111;&#46;&#99;&#111;&#109;">&#98;&#111;&#107;&#117;&#115;&#97;&#116;&#115;&#117;&#120;&#116;&#101;&#110;&#115;&#104;&#105;&#64;&#121;&#97;&#104;&#111;&#111;&#46;&#99;&#111;&#109;</a></noscript>
+  </div>
+</section>
+
+<div class="archive-help">
+  <strong>Archive and rights notice</strong>
+  <p>This is an independent fan archive, not affiliated with or endorsed by the people or platforms mentioned. All content belongs to its respective owners.</p>
+  <p>Please don’t use this site for hacking, harassment, stalking, doxxing, or accessing accounts without permission. Contact me about broken links or copyright, privacy, or safety concerns.</p>
+  <p>This notice does not override the law or prevent removal requests.</p>
+  <strong class="help-heading">Photo archive</strong>
+  <p>Photos are hosted on Google Photos and may be reused. If you have concerns about a photo or want it reviewed or removed from my archive, contact me. Removing a link from this site does not delete copies saved or shared elsewhere.</p>
+</div>
+
+<footer>
+  <span class="footer-title">Archive status: <span class="status-working">Working</span></span>
+  <br><br>© 2026 Earth’s Hikkichan Archive.
+  <br><span class="footer-ornament" aria-hidden="true">✧ ─────── ✦ ─────── ✧</span>
+  <br><button type="button" class="reopen-notice" id="reopen-notice">View access notice</button>
+</footer>
+</main>
+
+<button class="back-to-top" id="top-button" type="button" aria-label="Back to top">Back to top</button>
+
+<nav class="section-menu" id="section-menu" aria-label="Jump to a section">
+  <div class="section-menu-track">
+    <a href="#top">Top</a>
+    <a href="#snapshot-section">Archive snapshot</a>
+    <a href="#archive-section">Archive links</a>
+    <a href="#blogs-section">Blogs and Websites</a>
+    <a href="#yt-section">YouTube channels</a>
+    <a href="#media-section">Other Profiles</a>
+    <a href="#aliases-section">Username index</a>
+    <a href="#status-section">Status labels</a>
+    <a href="#updates-section">Updates</a>
+    <a href="#contact-section">Contact</a>
+  </div>
+</nav>
+
+
+<!-- HIKIMATE CHOOSER -->
+<div class="entry-gate hm-gate" id="hm-gate" role="dialog" aria-modal="true" aria-labelledby="hm-title" aria-describedby="hm-description" aria-hidden="true">
+  <div class="entry-card">
+    <button type="button" class="entry-close" id="hm-close" aria-label="Close notice">&times;</button>
+    <div class="entry-heading">
+      <p class="entry-kicker">Hikimate · choose a version</p>
+      <h2 id="hm-title">Before You Visit</h2>
+      <p class="entry-subtitle">Please choose which version to open</p>
+      <div class="entry-ornament" aria-hidden="true"><span>✧</span><span>✦</span><span>✧</span></div>
+    </div>
+
+    <div class="entry-body" id="hm-description" tabindex="0">
+      <h3>Wayback Machine Save</h3>
+      <p>The <strong>safe archived copy from 2010</strong>, preserved by the Internet Archive. This is the recommended way to view Hikimate.</p>
+
+      <h3>Current hikimate.com</h3>
+      <p><strong>The live site is no longer safe to visit.</strong> It is no longer run by the original owner and <strong>can redirect to unwanted or harmful content</strong>. That is why the archived version is recommended.</p>
+
+      <p class="legal-small">This archive does not control hikimate.com or the Internet Archive and cannot guarantee what either page shows.</p>
+    </div>
+
+    <div class="entry-footer">
+      <a class="entry-agree-button" id="hm-safe" href="https://web.archive.org/web/20100819070242/http://hikimate.com/index.php" target="_blank" rel="noopener noreferrer">Open the Wayback Machine save</a>
+      <a class="entry-agree-button hm-live" href="http://hikimate.com" target="_blank" rel="noopener noreferrer nofollow">Visit current hikimate.com (not safe)</a>
+      <p class="entry-footnote">✧ The archived 2010 copy is recommended ✧</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+"use strict";
+
+/* Keep the contact address out of plain-text HTML for basic spam scrapers.
+   This is not a security boundary: visitors and advanced scrapers can read it. */
+document.querySelectorAll("a[data-contact]").forEach(link => {
+  const encoded = link.getAttribute("data-contact");
+  if (!encoded) return;
+  const address = atob(encoded);
+  link.textContent = address;
+  link.setAttribute("href","mailto:" + address);
+  link.removeAttribute("data-contact");
+});
+
+
+const root = document.documentElement;
+const gate = document.getElementById("entry-gate");
+const checkbox = document.getElementById("agree-checkbox");
+const agreeButton = document.getElementById("agree-button");
+const entryError = document.getElementById("entry-error");
+const reopenButton = document.getElementById("reopen-notice");
+const closeButton = document.getElementById("entry-close");
+const searchInput = document.getElementById("archive-search");
+const searchStatus = document.getElementById("search-status");
+const topButton = document.getElementById("top-button");
+const progressBar = document.getElementById("scroll-progress");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+let activeFilter = "all";
+let gateClosing = false;
+let gateFinishTimer = null;
+let gateFocusTimer = null;
+let glowTimer = null;
+let navHighlightTimer = null;
+let scrollFrame = null;
+
+const searchablePanels = [...document.querySelectorAll(".searchable-panel")];
+const allPanels = [...document.querySelectorAll(".panel")];
+const filterButtons = [...document.querySelectorAll(".filter-chip")];
+const navButtons = [...document.querySelectorAll(".nav-item[data-target]")];
+
+function hasAgreed() {
+  try {
+    return localStorage.getItem("hikkichanArchiveAgreed") === "yes";
+  } catch (error) {
+    return false;
+  }
+}
+
+function safelyFocus(element) {
+  if (!element || typeof element.focus !== "function") return;
+
+  try {
+    element.focus({preventScroll:true});
+  } catch (error) {
+    element.focus();
+  }
+}
+
+function openGate() {
+  if (gateFinishTimer !== null) {
+    clearTimeout(gateFinishTimer);
+    gateFinishTimer = null;
+  }
+
+  if (gateFocusTimer !== null) {
+    clearTimeout(gateFocusTimer);
+    gateFocusTimer = null;
+  }
+
+  gate.hidden = false;
+  gateClosing = false;
+  gate.classList.remove("is-leaving");
+  root.classList.remove("archive-entering");
+  root.classList.add("archive-locked");
+
+  closeButton.hidden = !hasAgreed();
+  checkbox.checked = false;
+  agreeButton.disabled = true;
+  agreeButton.setAttribute("aria-disabled","true");
+  entryError.textContent = "";
+
+  gateFocusTimer = window.setTimeout(() => {
+    gateFocusTimer = null;
+
+    if (!gate.hidden && !gate.classList.contains("is-leaving")) {
+      safelyFocus(checkbox);
+    }
+  },30);
+}
+
+function closeGate(event) {
+  const dismissing = event && event.dismiss === true && hasAgreed();
+  if ((!checkbox.checked && !dismissing) || gateClosing) {
+    if (!checkbox.checked) {
+      entryError.textContent = "Please check the agreement box before continuing.";
+      safelyFocus(checkbox);
+    }
+    return;
+  }
+
+  gateClosing = true;
+
+  try {
+    localStorage.setItem("hikkichanArchiveAgreed","yes");
+  } catch (error) {
+    /* The notice still works if browser storage is unavailable. */
+  }
+
+  gate.classList.add("is-leaving");
+  root.classList.add("archive-entering");
+  root.classList.remove("archive-locked");
+
+  const finish = () => {
+    if (!gateClosing) return;
+
+    gate.hidden = true;
+    gate.classList.remove("is-leaving");
+    root.classList.remove("archive-entering");
+    gateClosing = false;
+    gateFinishTimer = null;
+
+    if (gateFocusTimer !== null) {
+      clearTimeout(gateFocusTimer);
+      gateFocusTimer = null;
+    }
+
+    refreshScroll();
+  };
+
+  if (reducedMotion.matches) {
+    finish();
+  } else {
+    gateFinishTimer = window.setTimeout(finish,290);
+  }
+}
+
+if (hasAgreed()) {
+  gate.hidden = true;
+  root.classList.remove("archive-locked");
+} else {
+  gate.hidden = false;
+  root.classList.add("archive-locked");
+
+  gateFocusTimer = window.setTimeout(() => {
+    gateFocusTimer = null;
+
+    if (!gate.hidden && !gate.classList.contains("is-leaving")) {
+      safelyFocus(checkbox);
+    }
+  },50);
+}
+
+agreeButton.setAttribute("aria-disabled",String(agreeButton.disabled));
+
+checkbox.addEventListener("change",() => {
+  const ready = checkbox.checked;
+
+  agreeButton.disabled = !ready;
+  agreeButton.setAttribute("aria-disabled",String(!ready));
+  entryError.textContent = "";
+});
+
+agreeButton.addEventListener("click",closeGate);
+reopenButton.addEventListener("click",openGate);
+closeButton.addEventListener("click",() => closeGate({dismiss:true}));
+
+/* Decorative stars */
+function createDecorations() {
+  const container = document.getElementById("cornerDecorations");
+
+  if (!container || container.dataset.created === "true") return;
+
+  container.dataset.created = "true";
+
+  if (reducedMotion.matches) return;
+
+  const types = [
+    "dot","dot","dot","pink-dot","mint-dot",
+    "star","star","pink-star","mint-star"
+  ];
+
+  const fragment = document.createDocumentFragment();
+  const mobile = window.matchMedia("(max-width:600px)").matches;
+  const total = mobile ? 22 : 44;
+
+  for (let i = 0; i < total; i++) {
+    const item = document.createElement("span");
+    const type = types[Math.floor(Math.random() * types.length)];
+
+    item.className = "corner-decoration " + type;
+
+    if (type.includes("star")) {
+      item.textContent = Math.random() > .5 ? "✦" : "✧";
+    }
+
+    item.style.left = Math.random() * 100 + "%";
+    item.style.top = Math.random() * 100 + "%";
+    item.style.setProperty(
+      "--size",
+      (type.includes("star") ? 8 + Math.random() * 9 : 2 + Math.random() * 3) + "px"
+    );
+    item.style.setProperty("--duration",(2.5 + Math.random() * 4) + "s");
+    item.style.setProperty("--delay",-(Math.random() * 4) + "s");
+
+    fragment.appendChild(item);
+  }
+
+  container.appendChild(fragment);
+}
+
+function createShootingStars() {
+  const container = document.getElementById("shooting-stars");
+
+  if (!container || container.dataset.created === "true") return;
+
+  container.dataset.created = "true";
+
+  if (reducedMotion.matches) return;
+
+  const fragment = document.createDocumentFragment();
+  const mobile = window.matchMedia("(max-width:600px)").matches;
+  const total = mobile ? 3 : 6;
+
+  for (let i = 0; i < total; i++) {
+    const star = document.createElement("span");
+
+    star.className = "shooting-star";
+    star.style.setProperty("--start-y",(4 + Math.random() * 68) + "%");
+    star.style.setProperty("--duration",(1.8 + Math.random() * 1.8) + "s");
+    star.style.setProperty("--delay",-(Math.random() * 3.5) + "s");
+
+    fragment.appendChild(star);
+  }
+
+  container.appendChild(fragment);
+}
+
+function normalize(value) {
+  return String(value ?? "").normalize("NFKC").toLowerCase().trim();
+}
+
+function getRowStatus(row) {
+  const notices = row.querySelectorAll(".status-notice");
+
+  if (!notices.length) {
+    return row.dataset.category === "archived" ? "archived" : "unknown";
+  }
+
+  const label = normalize([...notices].map(n => n.textContent).join(" "));
+
+  if (label.includes("corrupt")) return "corrupted";
+  if (label.includes("banned")) return "banned";
+  if (label.includes("deleted")) return "deleted";
+  if (label.includes("archived")) return "archived";
+  if (label === "active" || label === "archive channel") return "available";
+
+  return "unknown";
+}
+
+function entryStatus(entry) {
+  return entry.classList.contains("alias-link") ? "unknown" : getRowStatus(entry);
+}
+
+function getGroupName(entry) {
+  return entry.closest(".social-group")
+    ?.querySelector(".social-group-heading")
+    ?.textContent || "";
+}
+
+function entryMatchesFilter(entry) {
+  const category = entry.dataset.category || "";
+  const status = entryStatus(entry);
+
+  if (activeFilter === "all") return true;
+
+  if (activeFilter === "archived") {
+    return category === "archived" ||
+      ["archived","deleted","banned","corrupted"].includes(status);
+  }
+
+  if (["available","deleted","banned","corrupted"].includes(activeFilter)) {
+    if (activeFilter === "deleted" && entry.classList.contains("is-dual-status")) return true;
+    return status === activeFilter;
+  }
+
+  return category === activeFilter;
+}
+
+function searchableText(entry) {
+  const links = [];
+
+  if (entry.matches("a")) links.push(entry);
+  links.push(...entry.querySelectorAll("a"));
+
+  const urls = links
+    .map(link => (link.getAttribute("href") || "") + " " + link.href)
+    .join(" ");
+
+  return normalize(
+    (entry.textContent || "") + " " +
+    urls + " " +
+    getGroupName(entry) + " " +
+    (entry.dataset.category || "") + " " +
+    entryStatus(entry)
+  );
+}
+
+/* Update the dashboard from the entries actually on the page */
+function updateSnapshot() {
+  const counts = {
+    "all-links":document.querySelectorAll(".row").length,
+    "youtube-links":document.querySelectorAll("#yt-section .row").length,
+    "profile-links":document.querySelectorAll("#media-section .row").length,
+    "aliases":document.querySelectorAll("#aliases-section .alias-link").length
+  };
+
+  Object.entries(counts).forEach(([key,value]) => {
+    const counter = document.querySelector('[data-count="' + key + '"]');
+
+    if (counter) {
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce || counter.dataset.done) { counter.textContent = value.toLocaleString("en-US"); return; }
+      counter.dataset.done = "1";
+      const start = performance.now(), dur = 900;
+      const tick = now => {
+        const t = Math.min(1,(now - start) / dur), e = 1 - Math.pow(1 - t,3);
+        counter.textContent = Math.round(value * e).toLocaleString("en-US");
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+  });
+}
+
+/* Turn platform headings into collapsible groups */
+function setupSocialGroups() {
+  document.querySelectorAll(".link-list.media,.link-list.youtube-list")
+    .forEach((list,listIndex) => {
+      if (list.dataset.groupsReady === "true") return;
+
+      const isYouTube = list.classList.contains("youtube-list");
+      const children = [...list.children];
+      const fragment = document.createDocumentFragment();
+
+      let headingText = "";
+      let rows = [];
+      let groupIndex = 0;
+
+      function finishGroup() {
+        if (!headingText) return;
+
+        const group = document.createElement("section");
+        group.className = "social-group";
+        groupIndex++;
+
+        const heading = document.createElement("button");
+        heading.type = "button";
+        heading.className = "social-group-heading";
+        heading.textContent = headingText;
+        heading.setAttribute("aria-expanded","true");
+
+        const content = document.createElement("div");
+        content.className = "social-group-content";
+        content.id = "social-group-" + listIndex + "-" + groupIndex;
+
+        const inner = document.createElement("div");
+        inner.className = "social-group-inner";
+        inner.inert = false;
+        inner.setAttribute("aria-hidden","false");
+
+        content.appendChild(inner);
+        group.append(heading,content);
+
+        if (isYouTube) {
+          const key = normalize(headingText) === "active"
+            ? "available"
+            : normalize(headingText) === "deleted"
+              ? "deleted"
+              : "corrupted";
+
+          group.dataset.status = key;
+          rows.forEach(row => inner.appendChild(row));
+        } else {
+          const buckets = [
+            ["available","Active"],
+            ["deleted","Deleted"],
+            ["banned","Banned"],
+            ["corrupted","Corrupted"],
+            ["unknown","STATUS UNCONFIRMED"]
+          ];
+
+          buckets.forEach(([key,label]) => {
+            const matching = rows.filter(row => getRowStatus(row) === key);
+
+            if (!matching.length) return;
+
+            const bucket = document.createElement("div");
+            bucket.className = "status-subgroup";
+            bucket.dataset.status = key;
+
+            const title = document.createElement("div");
+            title.className = "status-subgroup-title";
+            title.textContent = label;
+
+            bucket.appendChild(title);
+            matching.forEach(row => bucket.appendChild(row));
+            inner.appendChild(bucket);
+          });
+        }
+
+        heading.setAttribute("aria-controls",content.id);
+
+        heading.addEventListener("click",() => {
+          const collapsed = group.classList.toggle("is-collapsed");
+          heading.setAttribute("aria-expanded",String(!collapsed));
+          inner.inert = collapsed;
+          inner.setAttribute("aria-hidden",String(collapsed));
+
+          refreshScroll();
+        });
+
+        fragment.appendChild(group);
+        headingText = "";
+        rows = [];
+      }
+
+      children.forEach(child => {
+        if (child.classList.contains("group-heading")) {
+          finishGroup();
+          headingText = child.textContent.trim();
+        } else if (child.classList.contains("row")) {
+          rows.push(child);
+        } else {
+          finishGroup();
+          fragment.appendChild(child);
+        }
+      });
+
+      finishGroup();
+      list.replaceChildren(fragment);
+      list.dataset.groupsReady = "true";
+    });
+}
+
+/* Preserve the animated collapse wrapper for each main panel */
+function setupPanels() {
+  allPanels.forEach((panel,index) => {
+    const heading = panel.querySelector(":scope > .panel-top");
+
+    if (!heading || heading.dataset.ready === "true") return;
+
+    heading.dataset.ready = "true";
+
+    if (!panel.id) {
+      panel.id = "archive-panel-" + index;
+    }
+
+    const content = document.createElement("div");
+    content.className = "panel-collapse-content";
+    content.id = panel.id + "-content";
+
+    const inner = document.createElement("div");
+    inner.className = "panel-collapse-inner";
+    inner.inert = false;
+    inner.setAttribute("aria-hidden","false");
+
+    [...panel.children].forEach(child => {
+      if (child !== heading) inner.appendChild(child);
+    });
+
+    content.appendChild(inner);
+    panel.appendChild(content);
+
+    heading.setAttribute("aria-controls",content.id);
+    heading.setAttribute("aria-expanded","true");
+
+    heading.addEventListener("click",() => {
+      const collapsed = panel.classList.toggle("is-collapsed");
+
+      heading.setAttribute("aria-expanded",String(!collapsed));
+      inner.inert = collapsed;
+      inner.setAttribute("aria-hidden",String(collapsed));
+
+      refreshScroll();
+    });
+  });
+}
+
+function expandPanel(panel) {
+  if (!panel) return;
+
+  panel.classList.remove("is-collapsed");
+
+  panel.querySelector(":scope > .panel-top")
+    ?.setAttribute("aria-expanded","true");
+
+  const inner = panel.querySelector(
+    ":scope > .panel-collapse-content > .panel-collapse-inner"
+  );
+
+  if (inner) {
+    inner.inert = false;
+    inner.setAttribute("aria-hidden","false");
+  }
+}
+
+function updateGroupVisibility(panel) {
+  panel.querySelectorAll(".social-group").forEach(group => {
+    const visibleRows = [...group.querySelectorAll(".row")]
+      .some(row => !row.hidden);
+
+    group.hidden = !visibleRows;
+
+    group.querySelectorAll(".status-subgroup").forEach(bucket => {
+      bucket.hidden = ![...bucket.querySelectorAll(".row")]
+        .some(row => !row.hidden);
+    });
+  });
+}
+
+function updateResults() {
+  const query = normalize(searchInput.value);
+  let total = 0;
+
+  searchablePanels.forEach(panel => {
+    const entries = [...panel.querySelectorAll(".row,.alias-link")];
+    let visible = 0;
+
+    entries.forEach(entry => {
+      const show =
+        (!query || searchableText(entry).includes(query)) &&
+        entryMatchesFilter(entry);
+
+      entry.hidden = !show;
+
+      if (show) {
+        visible++;
+        total++;
+      }
+    });
+
+    updateGroupVisibility(panel);
+    panel.hidden = visible === 0;
+
+    if (visible && (query || activeFilter !== "all")) {
+      expandPanel(panel);
+
+      panel.querySelectorAll(".social-group").forEach(group => {
+        const hasVisibleRows = [...group.querySelectorAll(".row")]
+          .some(row => !row.hidden);
+
+        if (hasVisibleRows) {
+          group.classList.remove("is-collapsed");
+
+          group.querySelector(".social-group-heading")
+            ?.setAttribute("aria-expanded","true");
+
+          const inner = group.querySelector(".social-group-inner");
+
+          if (inner) {
+            inner.inert = false;
+            inner.setAttribute("aria-hidden","false");
+          }
+        }
+      });
+    }
+  });
+
+  if (!query && activeFilter === "all") {
+    searchStatus.textContent =
+      "Showing all entries. Use the filters to narrow down the list.";
+  } else if (total === 0) {
+    searchStatus.textContent =
+      "No matches found. Try another name or choose a different filter.";
+  } else {
+    searchStatus.textContent =
+      total + " matching " + (total === 1 ? "entry" : "entries") + " found.";
+  }
+
+  refreshScroll();
+}
+
+function setFilter(filter) {
+  activeFilter = filter || "all";
+
+  filterButtons.forEach(button => {
+    button.setAttribute(
+      "aria-pressed",
+      String(button.dataset.filter === activeFilter)
+    );
+  });
+}
+
+function resetAll() {
+  searchInput.value = "";
+  setFilter("all");
+
+  searchablePanels.forEach(panel => {
+    panel.hidden = false;
+
+    panel.querySelectorAll(".row,.alias-link")
+      .forEach(entry => entry.hidden = false);
+
+    panel.querySelectorAll(".social-group,.status-subgroup")
+      .forEach(group => group.hidden = false);
+  });
+
+  updateResults();
+}
+
+function scrollToTarget(target) {
+  if (!target) return;
+
+  const panel = target.closest(".panel");
+
+  if (panel) expandPanel(panel);
+  if (target.classList.contains("panel")) expandPanel(target);
+
+  target.scrollIntoView({
+    behavior:reducedMotion.matches ? "auto" : "smooth",
+    block:"start"
+  });
+
+  if (panel) {
+    panel.classList.remove("is-glowing");
+    void panel.offsetWidth;
+    panel.classList.add("is-glowing");
+
+    if (glowTimer !== null) {
+      clearTimeout(glowTimer);
+    }
+
+    glowTimer = window.setTimeout(() => {
+      panel.classList.remove("is-glowing");
+      glowTimer = null;
+    },1350);
+  }
+
+  refreshScroll();
+}
+
+function setActiveNavigation(targetId) {
+  navButtons.forEach(button => {
+    button.classList.remove("is-active");
+    button.setAttribute("aria-current","false");
+  });
+
+  if (navHighlightTimer !== null) {
+    clearTimeout(navHighlightTimer);
+    navHighlightTimer = null;
+  }
+
+  const selected = navButtons.find(
+    button => button.dataset.target === targetId
+  );
+
+  if (!selected) return;
+
+  selected.classList.add("is-active");
+  selected.setAttribute("aria-current","location");
+
+  navHighlightTimer = window.setTimeout(() => {
+    selected.classList.remove("is-active");
+    selected.setAttribute("aria-current","false");
+    navHighlightTimer = null;
+  },reducedMotion.matches ? 100 : 650);
+}
+
+/* Keep scroll updates to one animation frame at a time */
+function refreshScroll() {
+  if (scrollFrame !== null) return;
+
+  scrollFrame = requestAnimationFrame(() => {
+    scrollFrame = null;
+
+    const max = Math.max(
+      0,
+      document.documentElement.scrollHeight - window.innerHeight
+    );
+
+    const y = window.scrollY ||
+      document.documentElement.scrollTop ||
+      0;
+
+    progressBar.style.transform =
+      "scaleX(" + (max ? Math.min(1,y / max) : 0) + ")";
+
+    topButton.classList.toggle("is-visible",y > 350);
+
+    updateSectionMenu(y);
+  });
+}
+
+/* Search controls */
+searchInput.addEventListener("input",updateResults);
+
+document.getElementById("search-button")
+  .addEventListener("click",updateResults);
+
+document.getElementById("clear-button").addEventListener("click",() => {
+  resetAll();
+  safelyFocus(searchInput);
+});
+
+searchInput.addEventListener("keydown",event => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    updateResults();
+  }
+
+  if (event.key === "Escape") {
+    resetAll();
+  }
+});
+
+/* Status and category filters */
+filterButtons.forEach(button => {
+  button.addEventListener("click",() => {
+    setFilter(button.dataset.filter);
+    updateResults();
+  });
+});
+
+/* Main navigation */
+navButtons.forEach(button => {
+  button.addEventListener("click",() => {
+    resetAll();
+
+    const target = document.getElementById(button.dataset.target);
+
+    setActiveNavigation(button.dataset.target);
+    scrollToTarget(target);
+  });
+});
+
+/* Quick links and aliases */
+document.querySelectorAll(
+  ".quick-links a[href^='#'],.alias-link[href^='#'],footer a[href^='#'],.section-menu a[href^='#']"
+).forEach(link => {
+  link.addEventListener("click",event => {
+    const href = link.getAttribute("href");
+    const target = href && href.length > 1
+      ? document.getElementById(href.slice(1))
+      : null;
+
+    if (!target) return;
+
+    event.preventDefault();
+    resetAll();
+
+    if (location.hash !== href) {
+      try {
+        history.pushState(null,"",href);
+      } catch (error) {
+        // Some browsers block history changes in downloaded HTML files.
+        // The section jump must still work when the address cannot change.
+      }
+    }
+
+    const navMatch = navButtons.find(
+      button => button.dataset.target === target.id
+    );
+
+    setActiveNavigation(navMatch ? navMatch.dataset.target : "");
+    scrollToTarget(target);
+  });
+});
+
+window.addEventListener("popstate",() => {
+  const id = location.hash.slice(1);
+  const target = id
+    ? document.getElementById(id)
+    : document.getElementById("top");
+
+  if (target) {
+    resetAll();
+
+    const navMatch = navButtons.find(
+      button => button.dataset.target === target.id
+    );
+
+    setActiveNavigation(navMatch ? navMatch.dataset.target : "");
+    scrollToTarget(target);
+  }
+});
+
+/* Back to top */
+topButton.addEventListener("click",() => {
+  setActiveNavigation("");
+
+  window.scrollTo({
+    top:0,
+    behavior:reducedMotion.matches ? "auto" : "smooth"
+  });
+});
+
+/* Sticky section menu (phones) */
+const sectionMenu = document.getElementById("section-menu");
+const sectionMenuLinks = sectionMenu
+  ? [...sectionMenu.querySelectorAll("a[href^='#']")]
+  : [];
+
+function updateSectionMenu(y) {
+  if (!sectionMenu) return;
+
+  const quickPanel = document.getElementById("quick-section");
+  const show = quickPanel
+    ? quickPanel.getBoundingClientRect().bottom < 40
+    : y > 600;
+
+  sectionMenu.classList.toggle("is-visible",show);
+  document.body.classList.toggle("menu-shown",show);
+
+  if (!show) return;
+
+  let currentId = "";
+  sectionMenuLinks.forEach(link => {
+    const target = document.getElementById(
+      (link.getAttribute("href") || "").slice(1)
+    );
+
+    if (target && target.getBoundingClientRect().top <= 130) {
+      currentId = target.id;
+    }
+  });
+
+  sectionMenuLinks.forEach(link => {
+    const href = (link.getAttribute("href") || "").slice(1);
+    const isCurrent = href === currentId;
+
+    link.classList.toggle("is-current",isCurrent);
+    if (isCurrent && link.getAttribute("aria-current") !== "location") {
+      const track = link.parentElement;
+      track.scrollTo({left:link.offsetLeft - (track.clientWidth - link.offsetWidth) / 2,behavior:reducedMotion.matches ? "auto" : "smooth"});
+    }
+    if (isCurrent) link.setAttribute("aria-current","location");
+    else link.removeAttribute("aria-current");
+  });
+}
+
+window.addEventListener("scroll",refreshScroll,{passive:true});
+window.addEventListener("resize",refreshScroll,{passive:true});
+window.addEventListener("load",refreshScroll,{once:true});
+
+/* Keyboard shortcuts and access notice focus handling */
+document.addEventListener("keydown",event => {
+  const active = document.activeElement;
+  const typing = active &&
+    (active.matches("input,textarea,select") || active.isContentEditable);
+
+  if (
+    event.key === "/" &&
+    !typing &&
+    !event.ctrlKey &&
+    !event.metaKey &&
+    !event.altKey &&
+    gate.hidden
+  ) {
+    event.preventDefault();
+    safelyFocus(searchInput);
+  }
+
+  if (event.key === "Escape" && !gate.hidden && hasAgreed()) {
+    event.preventDefault();
+    closeGate({dismiss:true});
+    return;
+  }
+
+  if (event.key === "Escape" && !gate.hidden) {
+    event.preventDefault();
+    entryError.textContent =
+      "Check the agreement box to enter the archive.";
+  }
+
+  if (event.key === "Tab" && !gate.hidden && !gate.classList.contains("is-leaving")) {
+    const focusable = [
+      ...gate.querySelectorAll(
+        "input,button,a[href],[tabindex]:not([tabindex='-1'])"
+      )
+    ].filter(element =>
+      !element.disabled &&
+      !element.hidden &&
+      element.offsetParent !== null &&
+      !element.closest("[inert]")
+    );
+
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+});
+
+/* Start the archive */
+createDecorations();
+createShootingStars();
+setupSocialGroups();
+setupPanels();
+updateSnapshot();
+
+/* Show more / fewer updates */
+(function () {
+  const button = document.getElementById("updates-toggle");
+  const group = document.getElementById("updates-extra");
+
+  if (!group || !button) return;
+
+  const clip = group.querySelector(".changelog-extra-clip");
+  let animating = false;
+
+  const setExpanded = expand => {
+    if (animating) return;
+
+    animating = true;
+    button.disabled = true;
+
+    let animation;
+
+    if (expand) {
+      group.style.overflow = "hidden";
+      group.style.height = "0px";
+      group.hidden = false;
+      group.setAttribute("aria-hidden","false");
+
+      animation = group.animate(
+        [{height:"0px",opacity:0},{height:clip.scrollHeight + "px",opacity:1}],
+        {duration:320,easing:"cubic-bezier(.3,.7,.25,1)"}
+      );
+      animation.onfinish = () => {
+        group.style.height = "";
+        group.style.overflow = "";
+        animating = false;
+        button.disabled = false;
+        refreshScroll();
+      };
+    } else {
+      const start = group.getBoundingClientRect().height;
+
+      group.style.overflow = "hidden";
+
+      animation = group.animate(
+        [{height:start + "px",opacity:1},{height:"0px",opacity:0}],
+        {duration:280,easing:"cubic-bezier(.4,0,.6,1)"}
+      );
+      animation.onfinish = () => {
+        group.style.height = "";
+        group.style.overflow = "";
+        group.hidden = true;
+        group.setAttribute("aria-hidden","true");
+        animating = false;
+        button.disabled = false;
+        refreshScroll();
+      };
+    }
+  };
+
+  button.hidden = false;
+
+  button.addEventListener("click",() => {
+    const expanded = button.getAttribute("aria-expanded") === "true";
+
+    button.setAttribute("aria-expanded",String(!expanded));
+    button.textContent = expanded
+      ? "View more updates (3)"
+      : "Show fewer updates";
+
+    setExpanded(!expanded);
+  });
+})();
+updateResults();
+refreshScroll();
+
+})();
+
+(function(){
+  const gate=document.getElementById("hm-gate");
+  const closeBtn=document.getElementById("hm-close");
+  let lastFocus=null;
+  function open(e){e.preventDefault();lastFocus=document.activeElement;gate.classList.add("is-open");gate.setAttribute("aria-hidden","false");setTimeout(()=>document.getElementById("hm-safe").focus(),50);}
+  function close(){if(!gate.classList.contains("is-open"))return;gate.classList.remove("is-open");gate.setAttribute("aria-hidden","true");if(lastFocus)lastFocus.focus();}
+  document.querySelectorAll('a[href*="web.archive.org/web/20100819070242/http://hikimate.com"]').forEach(a=>{if(!gate.contains(a))a.addEventListener("click",open);});
+  closeBtn.addEventListener("click",close);
+  gate.addEventListener("click",e=>{if(e.target===gate)close();});
+  gate.querySelectorAll(".entry-agree-button").forEach(a=>a.addEventListener("click",()=>setTimeout(close,100)));
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&gate.classList.contains("is-open")){e.stopPropagation();close();}},true);
+})();
+
+/* Gentle reveal of sections as they scroll into view */
+(() => {
+  if (!("IntersectionObserver" in window) ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const items = document.querySelectorAll(".panel,.archive-help,footer");
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add("is-revealed"); io.unobserve(en.target); }
+    });
+  },{rootMargin:"0px 0px -8% 0px",threshold:.04});
+  items.forEach(el => { el.classList.add("reveal"); io.observe(el); });
+})();
+</script>
+</body>
+</html>
